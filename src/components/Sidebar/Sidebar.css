@@ -1,0 +1,43 @@
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  background-color: #3db166;
+  color: white;
+
+  width: 18%;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  font-family: "Outfit", sans-serif;
+  font-style: normal;
+}
+
+.sidebar-menus {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%
+}
+
+.sidebar a {
+  color: #fff;              
+  text-decoration: none;     
+  padding: 4px 0;         
+  border-radius: 4px;      
+  transition: background-color 0.2s;
+}
+
+.sidebar a:hover,
+.sidebar a:focus {
+  background-color: rgba(255,255,255,0.2);
+  outline: none;        
+}
+
+.sidebar .dropdown-menu a {
+  display: block;          
+}

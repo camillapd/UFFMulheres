@@ -1,0 +1,30 @@
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 25px;
+  background-color: whitesmoke;
+}
+
+.dashboard-header {
+  margin-bottom: 1rem;
+}
+
+.dashboard-header .header-title h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.info-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.content-charts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
