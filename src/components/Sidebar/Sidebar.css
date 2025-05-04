@@ -3,13 +3,11 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  background-color: #3db166;
+  background-color: var(--green);
   color: white;
-
-  width: 18%;
+  width: 19%;
   padding: 1rem;
   box-sizing: border-box;
-
   font-family: "Outfit", sans-serif;
   font-style: normal;
 }
@@ -21,23 +19,24 @@
   align-items: stretch;
   justify-content: flex-start;
   gap: 1rem;
-  width: 100%
+  width: 100%;
 }
 
 .sidebar a {
-  color: #fff;              
-  text-decoration: none;     
-  padding: 4px 0;         
-  border-radius: 4px;      
+  color: rgba(var(--dark-gray),0.9);
+  text-decoration: none;
+  padding: 0.3rem;
+  border-radius: 4px;
   transition: background-color 0.2s;
 }
 
 .sidebar a:hover,
 .sidebar a:focus {
-  background-color: rgba(255,255,255,0.2);
-  outline: none;        
+  background-color: rgba(var(--dark-blue),0.5);
+  color: whitesmoke;
+  outline: none;
 }
 
 .sidebar .dropdown-menu a {
-  display: block;          
+  display: block;
 }
