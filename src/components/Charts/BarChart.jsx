@@ -63,7 +63,7 @@ const BarChart = ({
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "Valor",
+        legend: "Quantidade de alunos",
         legendPosition: "middle",
         legendOffset: -35,
         truncateTickAt: 0,
