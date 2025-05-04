@@ -1,0 +1,29 @@
+.footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    background-color: rgba(247, 247, 247, 0.9);
+    padding: 0.5rem;
+    margin-top: auto;
+    border-radius: 5px;
+  }
+  
+  .footer-links {
+    margin: 0.5rem 0;
+  }
+  
+  .footer-links a {
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: #006699;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-version {
+    font-style: italic;
+    color: #999;
+  }
+  
