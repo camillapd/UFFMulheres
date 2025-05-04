@@ -16,17 +16,17 @@
 .info-content h3 {
   margin: 0;
   font-size: 1.2rem;
-  color: #333;
+  color: black;
 }
 
 .info-value {
   margin: 8px 0;
   font-size: 2rem;
   font-weight: bold;
-  color: #3db166;
+  color: var(--green);
 }
 
 .info-subtitle {
   font-size: 0.9rem;
-  color: #666;
+  color: gray;
 }
