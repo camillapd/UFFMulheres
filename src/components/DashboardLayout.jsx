@@ -1,11 +1,11 @@
 import "./DashboardLayout.css";
 
-export default function DashboardLayout({ curso, cards, charts }) {
+export default function DashboardLayout({ titulo, cards, charts }) {
   return (
     <div className="dashboard-layout">
       <header className="dashboard-header">
         <div className="header-title">
-          <h2>Dashboard {curso}</h2>
+          <h2>{titulo}</h2>
         </div>
       </header>
 
