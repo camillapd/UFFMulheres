@@ -1,5 +1,6 @@
 import "./DropdownMenu.css";
 import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
 
 const DropdownMenu = ({ title, items }) => {
   const [open, setOpen] = useState(false);
@@ -7,10 +8,8 @@ const DropdownMenu = ({ title, items }) => {
   return (
     <div className="relative">
       <button className="dropdown-button" onClick={() => setOpen(!open)}>
-        {title} 
-        {/* <i className="fas fa-chevron-down">
-
-        </i> */}
+        {title}
+        <FaChevronDown size={16} color="white" />
       </button>
       {open && (
         <div className="dropdown-list">
