@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import { ResponsiveRadar } from "@nivo/radar";
 
-const RadarChart = ({ csvFileName, xColumn, valueColumns, propData }) => {
+const RadarChart = ({ csvFileName, xColumn, valueColumns, ariaLabel, data: propData  }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -94,10 +94,7 @@ const RadarChart = ({ csvFileName, xColumn, valueColumns, propData }) => {
         },
       ]}
       role="application"
-      ariaLabel="Nivo bar chart demo"
-      barAriaLabel={(e) =>
-        e.id + ": " + e.formattedValue + " in country: " + e.indexValue
-      }
+      ariaLabel={ariaLabel}
     />
   );
 };
