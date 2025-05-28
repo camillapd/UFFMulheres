@@ -25,7 +25,7 @@ export default function DashboardMestrado() {
         chartProps={{
           csvFileName: "mestrado/mestrado_formados_ano.csv",
           xColumn: "Ano",
-          valueColumns: ["Feminino", "Masculino", "Total"],
+          valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
           legendOffset: 50,
         }}
@@ -37,7 +37,7 @@ export default function DashboardMestrado() {
         chartProps={{
           csvFileName: "mestrado/mestrado_rendimento_ano.csv",
           xColumn: "Ano",
-          valueColumns: ["Feminino", "Masculino", "Total"],
+          valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
         }}
       />
@@ -48,7 +48,7 @@ export default function DashboardMestrado() {
         chartProps={{
           csvFileName: "mestrado/mestrado_desistentes_ano.csv",
           xColumn: "Ano",
-          valueColumns: ["Feminino", "Masculino", "Total"],
+          valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
         }}
       />
@@ -59,7 +59,7 @@ export default function DashboardMestrado() {
         chartProps={{
           csvFileName: "mestrado/mestrado_trancados_ano.csv",
           xColumn: "Ano",
-          valueColumns: ["Feminino", "Masculino", "Total"],
+          valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
         }}
       />

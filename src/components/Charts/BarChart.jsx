@@ -29,6 +29,9 @@ const BarChart = ({
             valueColumns.forEach((col) => {
               formattedItem[col] = item[col];
             });
+            if (item.Total !== undefined) {
+              formattedItem.Total = item.Total;
+            }
             return formattedItem;
           });
           setData(formattedData);
@@ -98,6 +101,33 @@ const BarChart = ({
           ],
         },
       ]}
+      tooltip={({ indexValue, data }) => {
+        const feminino = data["Feminino"] ?? 0;
+        const masculino = data["Masculino"] ?? 0;
+        const total = data["Total"];
+        return (
+          <div
+            style={{
+              padding: 12,
+              background: "white",
+              color: "#000",
+              boxShadow: "0 3px 9px rgba(0, 0, 0, 0.5)",
+            }}
+          >
+            <strong>{indexValue}</strong>
+            <br />
+            Feminino: {feminino}
+            <br />
+            Masculino: {masculino}
+            {total !== undefined && (
+              <>
+                <br />
+                <strong>Total: {total}</strong>
+              </>
+            )}
+          </div>
+        );
+      }}
       role="application"
       ariaLabel="Nivo bar chart demo"
       barAriaLabel={(e) =>
