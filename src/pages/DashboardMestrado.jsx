@@ -2,6 +2,7 @@ import DashboardLayout from "../components/DashboardLayout";
 import ChartCard from "../components/ChartCard";
 import BarChart from "../components/Charts/BarChart";
 import InfoCard from "../components/InfoCard";
+import Glossario from "../components/Glossario";
 
 export default function DashboardMestrado() {
   const charts = (
@@ -118,11 +119,18 @@ export default function DashboardMestrado() {
     </>
   );
 
+  const glossary = (
+    <>
+      <Glossario />
+    </>
+  );
+
   return (
     <DashboardLayout
       titulo="Dashboard do Mestrado"
       cards={cards}
       charts={charts}
+      glossary={glossary}
     ></DashboardLayout>
   );
 }

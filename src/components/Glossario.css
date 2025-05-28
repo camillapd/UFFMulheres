@@ -1,0 +1,42 @@
+.glossary-card {
+  background: white;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 1rem 0;
+  padding: 10px 25px;
+  width: 50%;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.glossary-card:hover {
+  transform: scale(1.01);
+}
+
+.glossary-card h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+}
+
+.glossary-card dl dt {
+  font-weight: 600;
+  margin-top: 1rem;
+  color: #006699;
+}
+
+.glossary-card dl dd {
+  margin-left: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #555;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .glossary-card {
+    max-width: 90%;
+    padding: 15px 10px;
+  }
+}
