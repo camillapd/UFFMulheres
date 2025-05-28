@@ -38,13 +38,11 @@ export default function Home() {
 
   const charts = (
     <>
-      <div className="flex-item">
-        <ChartCard
-          title="Total de alunas da Graduação"
-          ChartComponent={PieChart}
-          chartProps={{ data: dados_grad }}
-        />
-      </div>
+      <ChartCard
+        title="Total de alunas da Graduação"
+        ChartComponent={PieChart}
+        chartProps={{ data: dados_grad }}
+      />
     </>
   );
 
