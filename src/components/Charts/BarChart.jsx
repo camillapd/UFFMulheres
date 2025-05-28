@@ -9,7 +9,7 @@ const BarChart = ({
   groupMode,
   layout,
   tickRotation,
-  legendOffset=40,
+  ariaLabel,
   data: propData,
 }) => {
   const [data, setData] = useState([]);
@@ -101,6 +101,24 @@ const BarChart = ({
           ],
         },
       ]}
+      defs={[
+        {
+          id: "dots",
+          type: "patternDots",
+          background: "inherit",
+          color: "#a6d854",
+          size: 6,
+          padding: 1,
+          stagger: true,
+        },
+
+      ]}
+      fill={[
+        {
+          match: { id: "Masculino" },
+          id: "dots",
+        },
+      ]}
       tooltip={({ indexValue, data }) => {
         const feminino = data["Feminino"] ?? 0;
         const masculino = data["Masculino"] ?? 0;
@@ -129,9 +147,11 @@ const BarChart = ({
         );
       }}
       role="application"
-      ariaLabel="Nivo bar chart demo"
+      ariaLabel={ariaLabel}
+      isFocusable={true}
+      enableLabel={true}
       barAriaLabel={(e) =>
-        e.id + ": " + e.formattedValue + " in country: " + e.indexValue
+        e.indexValue + " - " + e.id + e.formattedValue + ": alunos"
       }
     />
   );
