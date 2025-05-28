@@ -32,7 +32,7 @@ export default function DashboardMestrado() {
       />
 
       <ChartCard
-        title="Alunos desligados por insuficiência de rendimento por ano"
+        title="Alunos desligados por rendimento por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "mestrado/mestrado_rendimento_ano.csv",
@@ -54,18 +54,7 @@ export default function DashboardMestrado() {
       />
 
       <ChartCard
-        title="Alunos desistentes por ano"
-        ChartComponent={BarChart}
-        chartProps={{
-          csvFileName: "mestrado/mestrado_desistentes_ano.csv",
-          xColumn: "Ano",
-          valueColumns: ["Feminino", "Masculino", "Total"],
-          tickRotation: -90,
-        }}
-      />
-
-      <ChartCard
-        title="Alunos que pediram trancamento por ano"
+        title="Alunos trancados por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "mestrado/mestrado_trancados_ano.csv",
@@ -76,7 +65,7 @@ export default function DashboardMestrado() {
       />
 
       <ChartCard
-        title="Alunos que foram desligados da UFF, entre 2022 e 2024, com razão"
+        title="Alunos que foram desligados da UFF por razão"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "mestrado/mestrado_desligados.csv",
