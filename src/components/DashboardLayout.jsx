@@ -1,6 +1,6 @@
 import "./DashboardLayout.css";
 
-export default function DashboardLayout({ titulo, cards, charts }) {
+export default function DashboardLayout({ titulo, cards, charts, glossary }) {
   return (
     <div className="dashboard-layout">
       <header className="dashboard-header">
@@ -12,6 +12,8 @@ export default function DashboardLayout({ titulo, cards, charts }) {
       <section className="info-cards">{cards}</section>
 
       <div className="content-charts">{charts}</div>
+
+      <section className="content-glossary">{glossary}</section>
     </div>
   );
 }
