@@ -9,6 +9,7 @@ const BarChart = ({
   groupMode,
   layout,
   tickRotation,
+  legendOffsetBt = 50,
   ariaLabel,
   data: propData,
 }) => {
@@ -39,18 +40,24 @@ const BarChart = ({
       });
     }
   }, [propData, csvFileName, xColumn, valueColumns]);
-
+  
   return (
     <ResponsiveBar
       data={data}
       keys={valueColumns}
       indexBy={xColumn}
-      margin={{ top: 20, right: 0, bottom: 55, left: 40 }}
+      margin={{ top: 30, right: 0, bottom: 55, left: 40 }}
       groupMode={groupMode}
       layout={layout}
       valueScale={{ type: "linear" }}
       indexScale={{ type: "band", round: true, padding: 0.5 }}
-      colors={{ scheme: "nivo" }}
+      colors={({ id }) => {
+        const colorMap = {
+          Feminino: "#e78ac3", // rosa
+          Masculino: "#66c2a5", // verde-azulado
+        };
+        return colorMap[id];
+      }}
       axisTop={null}
       axisRight={null}
       axisBottom={{
@@ -59,7 +66,7 @@ const BarChart = ({
         tickRotation,
         legend: xColumn,
         legendPosition: "middle",
-        legendOffset,
+        legendOffset: legendOffsetBt,
         truncateTickAt: 0,
       }}
       axisLeft={{
