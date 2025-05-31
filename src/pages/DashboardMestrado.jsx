@@ -8,6 +8,48 @@ export default function DashboardMestrado() {
   const charts = (
     <>
       <ChartCard
+        title="Alunos ativos por tipo de matrícula"
+        ChartComponent={BarChart}
+        chartProps={{
+          csvFileName: "mestrado/mestrado_tipo_matricula.csv",
+          xColumn: "Tipo",
+          valueColumns: ["Feminino", "Masculino"],
+          groupMode: "grouped",
+          legendOffsetBt: 35,
+          ariaLabel:
+            "Gráfico de barras mostrando a quantidade de alunos ativos no mestrado",
+        }}
+      />
+
+      <ChartCard
+        title="Alunos ativos que pediram prorrogação"
+        ChartComponent={BarChart}
+        chartProps={{
+          csvFileName: "mestrado/mestrado_prorrogacao.csv",
+          xColumn: "Razão",
+          valueColumns: ["Feminino", "Masculino"],
+          groupMode: "grouped",
+          legendOffsetBt: 35,
+          ariaLabel:
+            "Gráfico de barras mostrando a quantidade de alunos que pediram prorrogação no mestrado",
+        }}
+      />
+
+      <ChartCard
+        title="Alunos que foram desligados da UFF por razão"
+        ChartComponent={BarChart}
+        chartProps={{
+          csvFileName: "mestrado/mestrado_desligados.csv",
+          xColumn: "Razão",
+          valueColumns: ["Feminino", "Masculino"],
+          groupMode: "grouped",
+          legendOffsetBt: 35,
+          ariaLabel:
+            "Gráfico de barras mostrando a quantidade de alunos do mestrado que foram desligados da UFF, por razão",
+        }}
+      />
+
+      <ChartCard
         title="Alunos inscritos por ano"
         ChartComponent={BarChart}
         chartProps={{
@@ -71,48 +113,6 @@ export default function DashboardMestrado() {
           tickRotation: -90,
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos que pediram trancamento, por ano no mestrado",
-        }}
-      />
-
-      <ChartCard
-        title="Alunos que foram desligados da UFF por razão"
-        ChartComponent={BarChart}
-        chartProps={{
-          csvFileName: "mestrado/mestrado_desligados.csv",
-          xColumn: "Razão",
-          valueColumns: ["Feminino", "Masculino"],
-          groupMode: "grouped",
-          legendOffsetBt: 35,
-          ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos do mestrado que foram desligados da UFF, por razão",
-        }}
-      />
-
-      <ChartCard
-        title="Alunos ativos que pediram prorrogação"
-        ChartComponent={BarChart}
-        chartProps={{
-          csvFileName: "mestrado/mestrado_prorrogacao.csv",
-          xColumn: "Razão",
-          valueColumns: ["Feminino", "Masculino"],
-          groupMode: "grouped",
-          legendOffsetBt: 35,
-          ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos que pediram prorrogação no mestrado",
-        }}
-      />
-
-      <ChartCard
-        title="Alunos ativos por tipo de matrícula"
-        ChartComponent={BarChart}
-        chartProps={{
-          csvFileName: "mestrado/mestrado_tipo_matricula.csv",
-          xColumn: "Tipo",
-          valueColumns: ["Feminino", "Masculino"],
-          groupMode: "grouped",
-          legendOffsetBt: 35,
-          ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos no mestrado",
         }}
       />
     </>
