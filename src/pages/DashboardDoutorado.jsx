@@ -136,7 +136,7 @@ export default function DashboardDoutorado() {
 
   return (
     <DashboardLayout
-      titulo="Dashboard do Doutorado"
+      title="Dashboard do Doutorado"
       cards={cards}
       charts={charts}
       glossary={glossary}

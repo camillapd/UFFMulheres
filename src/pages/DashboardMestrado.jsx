@@ -136,7 +136,7 @@ export default function DashboardMestrado() {
 
   return (
     <DashboardLayout
-      titulo="Dashboard do Mestrado"
+      title="Dashboard do Mestrado"
       cards={cards}
       charts={charts}
       glossary={glossary}
