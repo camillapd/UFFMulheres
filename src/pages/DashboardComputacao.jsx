@@ -3,7 +3,7 @@ import ChartCard from "../components/ChartCard";
 import BarChart from "../components/Charts/BarChart";
 import InfoCard from "../components/InfoCard";
 import Glossary from "../components/Glossary";
-import { glossaryPos } from "../glossaries/glossaryPos";
+import { glossaryGrad } from "../glossaries/glossaryGrad";
 import { formatGlossary } from "../utils/formatGlossary";
 
 export default function DashboardComputacao() {
@@ -108,7 +108,7 @@ export default function DashboardComputacao() {
 
   const glossary = (
     <>
-      <Glossary content={formatGlossary(glossaryPos)} />
+      <Glossary content={formatGlossary(glossaryGrad)} />
     </>
   );
 
