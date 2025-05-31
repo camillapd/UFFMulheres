@@ -130,7 +130,7 @@ export default function DashboardMestrado() {
 
   const glossary = (
     <>
-      <Glossary content={formatGlossario(glossaryPos)} />
+      <Glossary content={formatGlossary(glossaryPos)} />
     </>
   );
 
