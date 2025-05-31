@@ -13,7 +13,7 @@ export default function DashboardMestrado() {
         title="Alunos ativos por tipo de matrícula"
         ChartComponent={BarChart}
         chartProps={{
-          csvFileName: "mestrado/mestrado_tipo_matricula.csv",
+          csvFileName: "posgrad/mestrado/mestrado_tipo_matricula.csv",
           xColumn: "Tipo",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
@@ -27,7 +27,7 @@ export default function DashboardMestrado() {
         title="Alunos ativos que pediram prorrogação"
         ChartComponent={BarChart}
         chartProps={{
-          csvFileName: "mestrado/mestrado_prorrogacao.csv",
+          csvFileName: "posgrad/mestrado/mestrado_prorrogacao.csv",
           xColumn: "Razão",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
@@ -41,7 +41,7 @@ export default function DashboardMestrado() {
         title="Alunos que foram desligados da UFF por razão"
         ChartComponent={BarChart}
         chartProps={{
-          csvFileName: "mestrado/mestrado_desligados.csv",
+          csvFileName: "posgrad/mestrado/mestrado_desligados.csv",
           xColumn: "Razão",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
@@ -55,7 +55,7 @@ export default function DashboardMestrado() {
         title="Alunos inscritos por ano"
         ChartComponent={BarChart}
         chartProps={{
-          csvFileName: "mestrado/mestrado_inscritos_ano.csv",
+          csvFileName: "posgrad/mestrado/mestrado_inscritos_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
@@ -69,7 +69,7 @@ export default function DashboardMestrado() {
         title="Alunos formados por ano"
         ChartComponent={BarChart}
         chartProps={{
-          csvFileName: "mestrado/mestrado_formados_ano.csv",
+          csvFileName: "posgrad/mestrado/mestrado_formados_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
@@ -83,7 +83,7 @@ export default function DashboardMestrado() {
         title="Alunos desligados por rendimento por ano"
         ChartComponent={BarChart}
         chartProps={{
-          csvFileName: "mestrado/mestrado_rendimento_ano.csv",
+          csvFileName: "posgrad/mestrado/mestrado_rendimento_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
@@ -96,7 +96,7 @@ export default function DashboardMestrado() {
         title="Alunos desistentes por ano"
         ChartComponent={BarChart}
         chartProps={{
-          csvFileName: "mestrado/mestrado_desistentes_ano.csv",
+          csvFileName: "posgrad/mestrado/mestrado_desistentes_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
@@ -109,7 +109,7 @@ export default function DashboardMestrado() {
         title="Alunos trancados por ano"
         ChartComponent={BarChart}
         chartProps={{
-          csvFileName: "mestrado/mestrado_trancados_ano.csv",
+          csvFileName: "posgrad/mestrado/mestrado_trancados_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
