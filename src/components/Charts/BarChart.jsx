@@ -10,6 +10,11 @@ const BarChart = ({
   layout,
   tickRotation,
   legendOffsetBt = 50,
+  legendOffsetLeft = -35,
+  legendBtText,
+  legendLeftText,
+  tickTextAnchor = "middle",
+  marginLeft = 40,
   ariaLabel,
   data: propData,
 }) => {
@@ -40,13 +45,21 @@ const BarChart = ({
       });
     }
   }, [propData, csvFileName, xColumn, valueColumns]);
-  
+
+  const bottomLegend =
+    legendBtText ||
+    (layout === "vertical" ? xColumn : "Quantidade de alunos");
+    
+  const leftLegend =
+    legendLeftText ||
+    (layout === "vertical" ? "Quantidade de alunos" : xColumn);
+
   return (
     <ResponsiveBar
       data={data}
       keys={valueColumns}
       indexBy={xColumn}
-      margin={{ top: 30, right: 0, bottom: 55, left: 40 }}
+      margin={{ top: 30, right: 0, bottom: 55, left: marginLeft }}
       groupMode={groupMode}
       layout={layout}
       valueScale={{ type: "linear" }}
@@ -64,7 +77,7 @@ const BarChart = ({
         tickSize: 5,
         tickPadding: 5,
         tickRotation,
-        legend: xColumn,
+        legend: bottomLegend,
         legendPosition: "middle",
         legendOffset: legendOffsetBt,
         truncateTickAt: 0,
@@ -73,9 +86,9 @@ const BarChart = ({
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "Quantidade de alunos",
+        legend: leftLegend,
         legendPosition: "middle",
-        legendOffset: -35,
+        legendOffset: legendOffsetLeft,
         truncateTickAt: 0,
       }}
       labelSkipWidth={12}
@@ -118,7 +131,6 @@ const BarChart = ({
           padding: 1,
           stagger: true,
         },
-
       ]}
       fill={[
         {
@@ -160,6 +172,21 @@ const BarChart = ({
       barAriaLabel={(e) =>
         e.indexValue + " - " + e.id + e.formattedValue + ": alunos"
       }
+      theme={{
+        axis: {
+          ticks: {
+            text: {
+              textAnchor: tickTextAnchor,
+              dx:
+                tickTextAnchor === "start"
+                  ? -5
+                  : tickTextAnchor === "end"
+                  ? 5
+                  : 0,
+            },
+          },
+        },
+      }}
     />
   );
 };
