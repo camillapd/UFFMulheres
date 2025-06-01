@@ -22,6 +22,21 @@ const BarChart = ({
 }) => {
   const [data, setData] = useState([]);
 
+  const getIndexValue = (item) => {
+    if (xMode === "anoSemestre") {
+      if (item.Ano !== undefined && item.Semestre !== undefined) {
+        return `${item.Ano}.${item.Semestre}`;
+      }
+      return item.Ano ?? item[xColumn];
+    } else if (xMode === "ano") {
+      return item.Ano ?? item[xColumn];
+    } else if (xMode === "semestre") {
+      return item.Semestre ?? item[xColumn];
+    } else {
+      return item[xColumn];
+    }
+  };
+
   useEffect(() => {
     if (propData) {
       setData(propData);
@@ -32,36 +47,32 @@ const BarChart = ({
         header: true,
         dynamicTyping: true,
         complete: (result) => {
-          const formattedData = result.data.map((item) => {
-            let indexValue;
+          if (result.meta.fields.includes("Sexo")) {
+            const grouped = {};
+            result.data.forEach((item) => {
+              const indexValue = getIndexValue(item);
+              if (!grouped[indexValue])
+                grouped[indexValue] = { index: indexValue };
 
-            if (xMode === "anoSemestre") {
-              if (item.Ano !== undefined && item.Semestre !== undefined) {
-                indexValue = `${item.Ano}.${item.Semestre}`;
-              } else {
-                indexValue = item[xColumn];
-              }
-            } else if (xMode === "semestre") {
-              indexValue = item.Semestre ?? item[xColumn];
-            } else if (xMode === "ano") {
-              indexValue = item.Ano ?? item[xColumn];
-            } else {
-              indexValue = item[xColumn];
-            }
-
-            const formattedItem = { index: indexValue };
-            valueColumns.forEach((col) => {
-              formattedItem[col] = item[col];
+              if (item.Sexo === "M") grouped[indexValue].Masculino = item.Total;
+              if (item.Sexo === "F") grouped[indexValue].Feminino = item.Total;
             });
 
-            if (item.Total !== undefined) {
-              formattedItem.Total = item.Total;
-            }
-
-            return formattedItem;
-          });
-
-          setData(formattedData);
+            setData(Object.values(grouped));
+          } else {
+            const formattedData = result.data.map((item) => {
+              const indexValue = getIndexValue(item);
+              const formattedItem = { index: indexValue };
+              valueColumns.forEach((col) => {
+                formattedItem[col] = item[col];
+              });
+              if (item.Total !== undefined) {
+                formattedItem.Total = item.Total;
+              }
+              return formattedItem;
+            });
+            setData(formattedData);
+          }
         },
       });
     }
