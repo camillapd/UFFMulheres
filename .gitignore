@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 /public
+!/public/assets/data/
+!/public/assets/data/*.csv
