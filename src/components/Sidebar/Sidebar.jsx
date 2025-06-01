@@ -8,7 +8,7 @@ import { useState } from "react";
 const Sidebar = () => {
   const cursosGraduacao = [
     <Link to="/computacao">Ciência da Computação</Link>,
-    <Link to="">Sistemas de Informação</Link>,
+    <Link to="/informacao">Sistemas de Informação</Link>,
     <Link to="">Ciência da Computação (Rio das Ostras)</Link>,
     <Link to="">Tecnologia em Sistemas de Computação</Link>,
   ];
