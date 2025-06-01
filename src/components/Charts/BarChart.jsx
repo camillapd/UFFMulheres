@@ -9,6 +9,7 @@ const BarChart = ({
   groupMode,
   layout,
   tickRotation,
+  tickPaddingBt = 5,
   legendOffsetBt = 50,
   legendOffsetLeft = -35,
   legendBtText,
@@ -16,6 +17,7 @@ const BarChart = ({
   tickTextAnchor = "middle",
   marginLeft = 40,
   ariaLabel,
+  xMode = "ano",
   data: propData,
 }) => {
   const [data, setData] = useState([]);
@@ -31,25 +33,43 @@ const BarChart = ({
         dynamicTyping: true,
         complete: (result) => {
           const formattedData = result.data.map((item) => {
-            const formattedItem = { [xColumn]: item[xColumn] };
+            let indexValue;
+
+            if (xMode === "anoSemestre") {
+              if (item.Ano !== undefined && item.Semestre !== undefined) {
+                indexValue = `${item.Ano}.${item.Semestre}`;
+              } else {
+                indexValue = item[xColumn];
+              }
+            } else if (xMode === "semestre") {
+              indexValue = item.Semestre ?? item[xColumn];
+            } else if (xMode === "ano") {
+              indexValue = item.Ano ?? item[xColumn];
+            } else {
+              indexValue = item[xColumn];
+            }
+
+            const formattedItem = { index: indexValue };
             valueColumns.forEach((col) => {
               formattedItem[col] = item[col];
             });
+
             if (item.Total !== undefined) {
               formattedItem.Total = item.Total;
             }
+
             return formattedItem;
           });
+
           setData(formattedData);
         },
       });
     }
-  }, [propData, csvFileName, xColumn, valueColumns]);
+  }, [propData, csvFileName, xColumn, valueColumns, xMode]);
 
   const bottomLegend =
-    legendBtText ||
-    (layout === "vertical" ? xColumn : "Quantidade de alunos");
-    
+    legendBtText || (layout === "vertical" ? xColumn : "Quantidade de alunos");
+
   const leftLegend =
     legendLeftText ||
     (layout === "vertical" ? "Quantidade de alunos" : xColumn);
@@ -58,7 +78,7 @@ const BarChart = ({
     <ResponsiveBar
       data={data}
       keys={valueColumns}
-      indexBy={xColumn}
+      indexBy="index"
       margin={{ top: 30, right: 0, bottom: 55, left: marginLeft }}
       groupMode={groupMode}
       layout={layout}
@@ -75,7 +95,7 @@ const BarChart = ({
       axisRight={null}
       axisBottom={{
         tickSize: 5,
-        tickPadding: 5,
+        tickPadding: tickPaddingBt,
         tickRotation,
         legend: bottomLegend,
         legendPosition: "middle",

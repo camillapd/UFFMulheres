@@ -48,8 +48,12 @@ export default function DashboardComputacao() {
           csvFileName: "graduacao/computacao/cc_ano_ingresso.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          groupMode: "grouped",
-          legendOffsetBt: 35,
+          groupMode: "stacked",
+          tickRotation: -90,
+          tickPaddingBt: 0,
+          legendOffsetBt: 51,
+          tickTextAnchor: "end",
+          xMode: "anoSemestre",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos de Ciência da Computação por ano de ingresso",
         }}
