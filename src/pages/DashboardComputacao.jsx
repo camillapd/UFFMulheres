@@ -64,6 +64,7 @@ export default function DashboardComputacao() {
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
           legendOffset: 50,
+          tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos inscritos por ano em Ciência da Computação",
         }}
@@ -78,6 +79,7 @@ export default function DashboardComputacao() {
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
           legendOffset: 50,
+          tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos formados por ano em Ciência da Computação",
         }}
@@ -91,6 +93,7 @@ export default function DashboardComputacao() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
+          tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Ciência da Computação",
         }}
