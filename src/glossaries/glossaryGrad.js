@@ -15,7 +15,10 @@ export const glossaryGrad = [
     term: "Aluno Concluinte",
     meaning: ".",
   },
-
+  {
+    term: "Aluno Desistente",
+    meaning: ".",
+  },
   {
     term: "Transferência interinstucional",
     meaning: ".",
@@ -45,7 +48,19 @@ export const glossaryGrad = [
     meaning: ".",
   },
   {
+    term: "Mudança de curso",
+    meaning: ".",
+  },
+  {
+    term: "Mudança de localidade",
+    meaning: ".",
+  },
+  {
     term: "Convênio cultural/PEC-G",
+    meaning: ".",
+  },
+  {
+    term: "Mandado de segurança",
     meaning: ".",
   },
 ];
