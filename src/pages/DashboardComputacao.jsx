@@ -102,6 +102,22 @@ export default function DashboardComputacao() {
             "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Ciência da Computação",
         }}
       />
+
+      <ChartCard
+        title="Alunos ativos ao longo dos anos"
+        ChartComponent={BarChart}
+        chartProps={{
+          csvFileName: "graduacao/computacao/cc_ativos_historico.csv",
+          xColumn: "Ano",
+          valueColumns: ["Feminino", "Masculino"],
+          tickRotation: -90,
+          tickPaddingBt: 1,
+          legendOffset: 50,
+          tickTextAnchor: "end",
+          ariaLabel:
+            "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Ciência da Computação",
+        }}
+      />
     </>
   );
 
