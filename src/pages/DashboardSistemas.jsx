@@ -3,7 +3,7 @@ import ChartCard from "../components/ChartCard";
 import BarChart from "../components/Charts/BarChart";
 import InfoCard from "../components/InfoCard";
 import Glossary from "../components/Glossary";
-import { glossaryGrad } from "../glossaries/glossaryGrad";
+import { glossaryEad } from "../glossaries/glossaryEad";
 import { formatGlossary } from "../utils/formatGlossary";
 
 export default function DashboardSistemas() {
@@ -84,7 +84,7 @@ export default function DashboardSistemas() {
         chartProps={{
           csvFileName: "graduacao/sistemas/sc_formados_ano.csv",
           xColumn: "Ano",
-          valueColumns: ["Feminino", "Masculino"],      
+          valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
           legendOffset: 50,
           tickTextAnchor: "end",
@@ -136,7 +136,7 @@ export default function DashboardSistemas() {
 
   const glossary = (
     <>
-      <Glossary content={formatGlossary(glossaryGrad)} />
+      <Glossary content={formatGlossary(glossaryEad)} />
     </>
   );
 
