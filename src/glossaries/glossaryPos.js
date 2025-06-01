@@ -16,7 +16,7 @@ export const glossaryPos = [
   },
   {
     term: "Aluno Sanduíche",
-    meaning: "Aluno de intercâmbio cursando pós graduação sanduíche",
+    meaning: "Aluno de intercâmbio cursando pós graduação sanduíche.",
   },
   {
     term: "Prorrogação",
@@ -30,6 +30,11 @@ export const glossaryPos = [
   {
     term: "Prorrogação Extraordinária",
     meaning: "O segundo pedido de prorrogação feito pelo aluno.",
+  },
+  {
+    term: "Prorrogação de EQ",
+    meaning:
+      "Prorrogação do Exame de Qualificação (EQ) feito pelo aluno de doutorado.",
   },
   {
     term: "Aluno Desligado",
@@ -55,13 +60,13 @@ export const glossaryPos = [
       "Aluno que deixou de cumprir qualquer atividade acadêmica nos prazos estipulados pelo Regimento da Pós Graduação em Computação do Instituto de Computação.",
   },
   {
-    term: "Aluno que foi de matrícula Especial/Avulsa para Regular",
-    meaning: "Aluno foi admitido como aluno regular",
+    term: "Aluno que foi de matrícula Especial/Avulsa (E/A) para Regular",
+    meaning: "Aluno foi admitido como aluno regular.",
   },
   {
     term: "Aluno que foi de matrícula Regular para Avulsa",
     meaning:
-      "Passagem de aluno regular para avulso, por incapacidade do aluno em cursar o número mínimo de disciplinas exigidas, ou por solicitação do aluno",
+      "Passagem de aluno regular para avulso, por incapacidade do aluno em cursar o número mínimo de disciplinas exigidas, ou por solicitação do aluno.",
   },
   {
     term: "Aluno Desistente",
