@@ -123,8 +123,8 @@ export default function DashboardComputacaoRO() {
 
   const cards = (
     <>
-      <InfoCard title="Total de alunos Ativos" value={81} />
-      <InfoCard title="Alunas Ativas" value={367} />
+      <InfoCard title="Total de alunos Ativos" value={367} />
+      <InfoCard title="Alunas Ativas" value={81} />
       <InfoCard title="Alunos Ativos" value={448} />
     </>
   );
