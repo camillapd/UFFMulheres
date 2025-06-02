@@ -23,6 +23,17 @@
   margin-bottom: 20px;
 }
 
+.info-cards > div {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.info-cards > div > * {
+  flex: 1 1 33.33%;
+  box-sizing: border-box;
+}
+
 .content-charts {
   display: flex;
   flex-direction: row;
