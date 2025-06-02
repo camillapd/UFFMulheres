@@ -23,6 +23,12 @@ const BarChart = ({
   const [data, setData] = useState([]);
 
   const getIndexValue = (item) => {
+    const hasUniversity = "Instituição" in item;
+    const hasMajor = "Curso" in item;
+
+    if (hasUniversity && hasMajor) {
+      return `${item.Instituição} - ${item.Curso}`;
+    }
     if (xMode === "anoSemestre") {
       if (item.Ano !== undefined && item.Semestre !== undefined) {
         return `${item.Ano}.${item.Semestre}`;
