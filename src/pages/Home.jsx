@@ -5,6 +5,20 @@ import PieChart from "../components/Charts/PieChart";
 import BarChart from "../components/Charts/BarChart";
 
 export default function Home() {
+  const charts = (
+    <>
+      <ChartCard
+        title="Total de alunas da Graduação"
+        ChartComponent={PieChart}
+        chartProps={{
+          csvFileName: "graduacao/total_alunas.csv",
+          xColumn: "Curso",
+          valueColumns: ["Total"],
+        }}
+      />
+    </>
+  );
+
   const cards = (
     <>
       <InfoCard title="Total de alunos Ativos da Graduação" value={6449} />
@@ -17,38 +31,9 @@ export default function Home() {
     </>
   );
 
-  const dados_grad = [
-    { id: "Ciência da Computação", label: "Ciência da Computação", value: 131 },
-    {
-      id: "Sistemas de Informação",
-      label: "Sistemas de Informação",
-      value: 132,
-    },
-    {
-      id: "Ciência da Computação (RO)",
-      label: "Ciência da Computação (RO)",
-      value: 81,
-    },
-    {
-      id: "Tecnologia em Sistemas de Computação",
-      label: "Tecnologia em Sistemas de Computação",
-      value: 813,
-    },
-  ];
-
-  const charts = (
-    <>
-      <ChartCard
-        title="Total de alunas da Graduação"
-        ChartComponent={PieChart}
-        chartProps={{ data: dados_grad }}
-      />
-    </>
-  );
-
   return (
     <DashboardLayout
-      titulo="Home"
+      title="Home"
       cards={cards}
       charts={charts}
     ></DashboardLayout>
