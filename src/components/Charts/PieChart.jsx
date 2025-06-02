@@ -22,7 +22,7 @@ const PieChart = ({ csvFileName, xColumn, valueColumns, data: propData }) => {
                 const id = item[xColumn];
                 const value = Number(item[col]);
                 if (!isNaN(value)) {
-                  acc.push({ id: `${id} (${col})`, value });
+                  acc.push({ id: `${id}`, value });
                 }
                 return acc;
               }, []);
@@ -38,22 +38,73 @@ const PieChart = ({ csvFileName, xColumn, valueColumns, data: propData }) => {
   return (
     <ResponsivePie
       data={data}
-      margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+      margin={{ top: 30, right: 100, bottom: 50, left: 30 }}
+      startAngle={-50}
       innerRadius={0.5}
-      padAngle={0.7}
+      padAngle={1.5}
       cornerRadius={3}
       activeOuterRadiusOffset={8}
       borderWidth={1}
       borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
-      arcLinkLabelsSkipAngle={10}
+      arcLinkLabelsTextOffset={0}
       arcLinkLabelsTextColor="#333333"
-      arcLinkLabelsThickness={2}
+      arcLinkLabelsDiagonalLength={10}
+      arcLinkLabelsStraightLength={16}
       arcLinkLabelsColor={{ from: "color" }}
       arcLabelsSkipAngle={10}
-      arcLabelsTextColor={{ from: "color", modifiers: [["darker", 2]] }}
-      colors={{ scheme: "nivo" }}
+      arcLabelsTextColor={{ from: "color", modifiers: [["darker", 3]] }}
+      colors={{ scheme: "set2" }}
       animate={true}
       motionConfig="gentle"
+      legends={[
+        {
+          anchor: "right",
+          direction: "column",
+          translateY: 120,
+          translateX: 100,
+          itemWidth: 100,
+          itemHeight: 18,
+          symbolShape: "circle",
+          itemDirection: "right-to-left",
+        },
+      ]}
+      defs={[
+        {
+          id: "dots",
+          type: "patternDots",
+          background: "inherit",
+          color: "rgba(128,128,128,0.3)",
+          size: 6,
+          padding: 1,
+          stagger: true,
+        },
+        {
+          id: "lines",
+          type: "patternLines",
+          background: "inherit",
+          color: "rgba(128,128,128,0.3)",
+          rotation: 45,
+          lineWidth: 6,
+          spacing: 10,
+        },
+        {
+          id: "squares",
+          type: "patternSquares",
+          background: "inherit",
+          color: "rgba(128,128,128,0.3)",
+          size: 6,
+          padding: 1,
+          stagger: true,
+        },
+      ]}
+      fill={data.slice(0, -1).map((item, index) => {
+        const patternIds = ["dots", "lines", "squares"];
+        const pattern = patternIds[index % patternIds.length];
+        return {
+          match: { id: item.id },
+          id: pattern,
+        };
+      })}
     />
   );
 };
