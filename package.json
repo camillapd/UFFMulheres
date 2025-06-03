@@ -16,15 +16,14 @@
     "@nivo/colors": "^0.92.2",
     "@nivo/core": "^0.92.2",
     "@nivo/legends": "^0.92.2",
+    "@nivo/line": "^0.92.2",
     "@nivo/pie": "^0.92.2",
-    "@nivo/radar": "^0.92.2",
     "@nivo/tooltip": "^0.92.2",
     "masonry-layout": "^4.2.2",
     "papaparse": "^5.5.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
-    "react-masonry-css": "^1.0.16",
     "react-router-dom": "^7.5.1"
   },
   "devDependencies": {
