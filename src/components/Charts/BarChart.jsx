@@ -163,7 +163,7 @@ const BarChart = ({
           id: "dots",
           type: "patternDots",
           background: "inherit",
-          color: "#a6d854",
+          color: "rgba(128,128,128,0.3)",
           size: 6,
           padding: 1,
           stagger: true,
