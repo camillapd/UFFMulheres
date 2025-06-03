@@ -1,7 +1,7 @@
 import DashboardLayout from "../components/DashboardLayout";
 import ChartCard from "../components/ChartCard";
 import BarChart from "../components/Charts/BarChart";
-import InfoCard from "../components/InfoCard";
+import InfoCardGroup from "../components/InfoCardGroup";
 import Glossary from "../components/Glossary";
 import { glossaryEad } from "../glossaries/glossaryEad";
 import { formatGlossary } from "../utils/formatGlossary";
@@ -127,11 +127,11 @@ export default function DashboardSistemas() {
   );
 
   const cards = (
-    <>
-      <InfoCard title="Total de alunos Ativos" value={813} />
-      <InfoCard title="Alunas Ativas" value={3310} />
-      <InfoCard title="Alunos Ativos" value={4123} />
-    </>
+    <InfoCardGroup
+      csvPath="/assets/data/graduacao/alunos_ativos_geral.csv"
+      selectedMajor="Sistemas de Computação"
+      cardTitle="Total de alunos ativos"
+    />
   );
 
   const glossary = (

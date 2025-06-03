@@ -1,6 +1,6 @@
 import DashboardLayout from "../components/DashboardLayout";
 import ChartCard from "../components/ChartCard";
-import InfoCard from "../components/InfoCard";
+import InfoCardGroup from "../components/InfoCardGroup";
 import PieChart from "../components/Charts/PieChart";
 import BarChart from "../components/Charts/BarChart";
 import LineChart from "../components/Charts/LineChart";
@@ -257,16 +257,17 @@ export default function Home() {
 
   const cards = (
     <>
-      <div>
-        <InfoCard title="Total de alunos Ativos da Graduação" value={6449} />
-        <InfoCard title="Alunas Ativas" value={1157} />
-        <InfoCard title="Alunos Ativos" value={5292} />
-      </div>
-      <div>
-        <InfoCard title="Total de alunos Ativos da Pós Graduação" value={232} />
-        <InfoCard title="Alunas Ativas" value={43} />
-        <InfoCard title="Alunos Ativos" value={189} />
-      </div>
+      <InfoCardGroup
+        csvPath="/assets/data/graduacao/alunos_ativos_geral.csv"
+        selectedMajor="all"
+        cardTitle="Total de alunos ativos da Graduação"
+      />
+
+      <InfoCardGroup
+        csvPath="/assets/data/posgrad/alunos_ativos_geral.csv"
+        selectedMajor="all"
+        cardTitle="Total de alunos ativos da Pós Graduação"
+      />
     </>
   );
 

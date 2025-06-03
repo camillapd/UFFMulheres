@@ -1,7 +1,7 @@
 import DashboardLayout from "../components/DashboardLayout";
 import ChartCard from "../components/ChartCard";
 import BarChart from "../components/Charts/BarChart";
-import InfoCard from "../components/InfoCard";
+import InfoCardGroup from "../components/InfoCardGroup";
 import Glossary from "../components/Glossary";
 import { glossaryPos } from "../glossaries/glossaryPos";
 import { formatGlossary } from "../utils/formatGlossary";
@@ -126,11 +126,11 @@ export default function DashboardDoutorado() {
   );
 
   const cards = (
-    <>
-      <InfoCard title="Total de alunos Ativos" value={63} />
-      <InfoCard title="Alunas Ativas" value={16} />
-      <InfoCard title="Alunos Ativos" value={47} />
-    </>
+    <InfoCardGroup
+      csvPath="/assets/data/posgrad/alunos_ativos_geral.csv"
+      selectedMajor="Doutorado"
+      cardTitle="Total de alunos ativos"
+    />
   );
 
   const glossary = (

@@ -1,7 +1,7 @@
 import DashboardLayout from "../components/DashboardLayout";
 import ChartCard from "../components/ChartCard";
 import BarChart from "../components/Charts/BarChart";
-import InfoCard from "../components/InfoCard";
+import InfoCardGroup from "../components/InfoCardGroup";
 import Glossary from "../components/Glossary";
 import { glossaryGrad } from "../glossaries/glossaryGrad";
 import { formatGlossary } from "../utils/formatGlossary";
@@ -122,11 +122,11 @@ export default function DashboardComputacaoRO() {
   );
 
   const cards = (
-    <>
-      <InfoCard title="Total de alunos Ativos" value={367} />
-      <InfoCard title="Alunas Ativas" value={81} />
-      <InfoCard title="Alunos Ativos" value={448} />
-    </>
+    <InfoCardGroup
+    csvPath="/assets/data/graduacao/alunos_ativos_geral.csv"
+    selectedMajor="Ciência da Computação (RO)"
+    cardTitle="Total de alunos ativos"
+  />
   );
 
   const glossary = (
