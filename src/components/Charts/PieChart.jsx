@@ -2,7 +2,14 @@ import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import { ResponsivePie } from "@nivo/pie";
 
-const PieChart = ({ csvFileName, xColumn, valueColumns, data: propData }) => {
+const PieChart = ({
+  csvFileName,
+  xColumn,
+  valueColumns,
+  data: propData,
+  translateY = 140,
+  translateX = 100,
+}) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -60,8 +67,8 @@ const PieChart = ({ csvFileName, xColumn, valueColumns, data: propData }) => {
         {
           anchor: "right",
           direction: "column",
-          translateY: 120,
-          translateX: 100,
+          translateY: translateY,
+          translateX: translateX,
           itemWidth: 100,
           itemHeight: 18,
           symbolShape: "circle",
