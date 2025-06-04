@@ -48,7 +48,7 @@ export default function Home() {
             },
           ],
           tickRotation: -90,
-          legendOffsetBt: 55,
+          legendOffsetBt: 56,
           ariaLabel:
             "Gráfico de linha de alunas ativas inscritas por ano e curso",
         }}
@@ -80,6 +80,8 @@ export default function Home() {
               displayName: "TSC",
             },
           ],
+          marginBottom: 40,
+          legendOffsetBt: 36,
           ariaLabel:
             "Gráfico de linha do histórico de alunas inscritas na graduação por curso",
         }}
@@ -111,6 +113,8 @@ export default function Home() {
               displayName: "TSC",
             },
           ],
+          marginBottom: 40,
+          legendOffsetBt: 36,
           ariaLabel:
             "Gráfico de linha do histórico de alunas formadas na graduação por curso",
         }}
@@ -142,6 +146,8 @@ export default function Home() {
               displayName: "TSC",
             },
           ],
+          marginBottom: 40,
+          legendOffsetBt: 36,
           ariaLabel:
             "Gráfico de linha do histórico de alunas desistentes na graduação por curso",
         }}
@@ -175,7 +181,7 @@ export default function Home() {
             },
           ],
           tickRotation: -90,
-          legendOffsetBt: 50,
+          legendOffsetBt: 56,
           ariaLabel:
             "Gráfico de linha do histórico de alunas inscritas na graduação por curso",
         }}
@@ -198,7 +204,7 @@ export default function Home() {
             },
           ],
           tickRotation: -90,
-          legendOffsetBt: 50,
+          legendOffsetBt: 56,
           ariaLabel:
             "Gráfico de linha do histórico de alunas formadas na graduação por curso",
         }}
@@ -220,6 +226,8 @@ export default function Home() {
               displayName: "Doutorado",
             },
           ],
+          marginBottom: 40,
+          legendOffsetBt: 36,
           ariaLabel:
             "Gráfico de linha do histórico de alunas desistentes na pós graduação por curso",
         }}
@@ -241,6 +249,7 @@ export default function Home() {
               displayName: "Doutorado",
             },
           ],
+          legendOffsetBt: 36,
           ariaLabel:
             "Gráfico de linha do histórico de alunas desligadas por rendimento na pós graduação por curso",
         }}
@@ -269,6 +278,7 @@ export default function Home() {
           csvFileName: "posgrad/formacao_em_mestrado.csv",
           xColumn: "Curso",
           valueColumns: ["Feminino", "Masculino"],
+          legendOffsetBt: 38,
           ariaLabel:
             "Gráfico de barras dos alunos da pós que declararam sua formação em Mestrado",
         }}
