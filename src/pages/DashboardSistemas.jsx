@@ -56,6 +56,8 @@ export default function DashboardSistemas() {
           tickRotation: -90,
           tickPaddingBt: 0,
           legendOffsetBt: 51,
+          legendOffsetLeft: -40,
+          marginLeft: 45,
           tickTextAnchor: "end",
           xMode: "anoSemestre",
           ariaLabel:
@@ -102,6 +104,8 @@ export default function DashboardSistemas() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
           tickRotation: -90,
+          legendOffsetLeft: -40,
+          marginLeft: 45,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Superior de Tecnologia em Sistemas de Computação",
@@ -118,6 +122,8 @@ export default function DashboardSistemas() {
           tickRotation: -90,
           tickPaddingBt: 1,
           legendOffset: 50,
+          legendOffsetLeft: -48,
+          marginLeft: 54,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Superior de Tecnologia em Sistemas de Computação",

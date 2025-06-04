@@ -18,6 +18,9 @@ export default function DashboardComputacao() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
           legendOffsetBt: 35,
+          legendOffsetLeft: -42,
+          marginLeft: 48,
+          tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos em Ciência da Computação por situação",
         }}

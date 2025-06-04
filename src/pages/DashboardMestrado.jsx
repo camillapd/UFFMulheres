@@ -18,6 +18,9 @@ export default function DashboardMestrado() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
           legendOffsetBt: 35,
+          legendOffsetLeft: -42,
+          marginLeft: 48,
+          tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos no mestrado",
         }}
@@ -32,6 +35,9 @@ export default function DashboardMestrado() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
           legendOffsetBt: 35,
+          legendOffsetLeft: -42,
+          marginLeft: 48,
+          tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos que pediram prorrogação no mestrado",
         }}
@@ -46,6 +52,9 @@ export default function DashboardMestrado() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
           legendOffsetBt: 35,
+          legendOffsetLeft: -42,
+          marginLeft: 48,
+          tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos do mestrado que foram desligados da UFF, por razão",
         }}
