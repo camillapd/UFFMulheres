@@ -91,6 +91,35 @@ const BarChart = ({
     legendLeftText ||
     (layout === "vertical" ? "Quantidade de alunos" : xColumn);
 
+  const getBarChartAxes = () => {
+    const isHorizontal = layout === "horizontal";
+
+    const axisLeft = isHorizontal
+      ? {
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 0,
+          legend: leftLegend,
+          legendPosition: "middle",
+          legendOffset: legendOffsetLeft,
+          truncateTickAt: 0,
+        }
+      : {
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 0,
+          legend: leftLegend,
+          legendPosition: "middle",
+          legendOffset: legendOffsetLeft,
+          truncateTickAt: 0,
+          format: (value) => (Number.isInteger(value) ? value : ""),
+        };
+
+    return { axisLeft };
+  };
+
+  const { axisLeft } = getBarChartAxes();
+
   return (
     <ResponsiveBar
       data={data}
@@ -119,17 +148,9 @@ const BarChart = ({
         legendOffset: legendOffsetBt,
         truncateTickAt: 0,
       }}
-      axisLeft={{
-        tickSize: 5,
-        tickPadding: 5,
-        tickRotation: 0,
-        legend: leftLegend,
-        legendPosition: "middle",
-        legendOffset: legendOffsetLeft,
-        truncateTickAt: 0,
-      }}
-      labelSkipWidth={12}
-      labelSkipHeight={12}
+      axisLeft={axisLeft}
+      labelSkipWidth={18}
+      labelSkipHeight={10}
       labelTextColor={{
         from: "color",
         modifiers: [["darker", 1.6]],

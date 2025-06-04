@@ -7,7 +7,7 @@ const LineChart = ({
   ariaLabel,
   tickRotation,
   legendOffsetBt = 45,
-  tickPaddingBt = 5
+  tickPaddingBt = 5,
 }) => {
   const [data, setData] = useState([]);
 
@@ -21,17 +21,15 @@ const LineChart = ({
           dynamicTyping: true,
           complete: (result) => {
             const rows = result.data;
-            const hasSemestre = rows.length > 0 && "Semestre" in rows[0];
+            const hasSemester = rows.length > 0 && "Semestre" in rows[0];
 
             const points = rows
               .filter(
                 (row) =>
-                  row.Feminino !== undefined &&
-                  row.Feminino !== null &&
-                  row.Ano !== 2011
+                  row.Feminino !== undefined && row.Feminino !== null && row.Ano
               )
               .map((row) => ({
-                x: hasSemestre ? `${row.Ano}.${row.Semestre}` : row.Ano,
+                x: hasSemester ? `${row.Ano}.${row.Semestre}` : row.Ano,
                 y: row.Feminino,
               }))
               .sort((a, b) => Number(a.x) - Number(b.x));
@@ -76,6 +74,7 @@ const LineChart = ({
         legend: "Quantidade de alunas",
         legendOffset: -40,
         legendPosition: "middle",
+        format: (value) => (Number.isInteger(value) ? value : ""),
       }}
       colors={{ scheme: "set2" }}
       pointSize={6}
