@@ -113,22 +113,34 @@ const LineChart = ({
       role="application"
       ariaLabel={ariaLabel}
       isFocusable={true}
-      tooltip={({ point }) => (
-        <div
-          style={{
-            background: "white",
-            padding: "8px 12px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-          }}
-        >
-          <strong>{point.seriesId}</strong>
-          <br />
-          Ano: {point.data.xFormatted}
-          <br />
-          Alunas: {point.data.yFormatted}
-        </div>
-      )}
+      tooltip={({ point }) => {
+        let title;
+
+        if (point.seriesId == "CC") title = "Ciência da Computação";
+        else if (point.seriesId == "SI") title = "Sistemas de Informação";
+        else if (point.seriesId == "CC (RO)")
+          title = "Ciência da Computação (RO)";
+        else if (point.seriesId == "TSC")
+          title = "Tecnologia em Sistemas de Computação";
+        else title = point.seriesId;
+
+        return (
+          <div
+            style={{
+              background: "white",
+              padding: "8px 12px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+            }}
+          >
+            <strong>{title}</strong>
+            <br />
+            Ano: {point.data.xFormatted}
+            <br />
+            Alunas: {point.data.yFormatted}
+          </div>
+        );
+      }}
     />
   );
 };
