@@ -27,6 +27,41 @@
   margin: 0 auto;
 }
 
+.filter-container {
+  margin-bottom: 0.5rem;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.filter-container label {
+  font-weight: 600;
+}
+
+.filter-container select {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.filter-container select:hover {
+  border-color: #66c2a5; 
+}
+
+.filter-container select:focus {
+  outline: none;
+  border-color: #339977;
+  box-shadow: 0 0 3px #66c2a5;
+}
+
 @media (max-width: 768px) {
   .card {
     width: 100%;
