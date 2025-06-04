@@ -22,7 +22,7 @@ export default function Home() {
       />
 
       <ChartCard
-        title="Alunas ativas inscritas por ano e curso"
+        title="Alunas ativas por ano de inscrição e curso"
         ChartComponent={LineChart}
         chartProps={{
           majors: [
@@ -222,6 +222,27 @@ export default function Home() {
           ],
           ariaLabel:
             "Gráfico de linha do histórico de alunas desistentes na pós graduação por curso",
+        }}
+      />
+
+      <ChartCard
+        title="Histórico de alunas desligadas por rendimento na pós graduação por curso"
+        ChartComponent={LineChart}
+        chartProps={{
+          majors: [
+            {
+              name: "mestrado_rendimento_ano",
+              folder: "/assets/data/posgrad/mestrado",
+              displayName: "Mestrado",
+            },
+            {
+              name: "doutorado_rendimento_ano",
+              folder: "/assets/data/posgrad/doutorado",
+              displayName: "Doutorado",
+            },
+          ],
+          ariaLabel:
+            "Gráfico de linha do histórico de alunas desligadas por rendimento na pós graduação por curso",
         }}
       />
 
