@@ -8,6 +8,7 @@ const LineChart = ({
   tickRotation,
   legendOffsetBt = 45,
   tickPaddingBt = 5,
+  marginBottom = 60,
 }) => {
   const [data, setData] = useState([]);
 
@@ -46,7 +47,7 @@ const LineChart = ({
   return (
     <ResponsiveLine
       data={data}
-      margin={{ top: 30, right: 45, bottom: 60, left: 45 }}
+      margin={{ top: 30, right: 45, bottom: marginBottom, left: 45 }}
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",
