@@ -6,7 +6,6 @@ const PieChart = ({
   csvFileName,
   xColumn,
   valueColumns,
-  data: propData,
   translateY = 170,
   translateX = 100,
   marginBottom = 40,
@@ -15,34 +14,30 @@ const PieChart = ({
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    if (propData) {
-      setData(propData);
-    } else if (csvFileName) {
-      const csvPath = `/assets/data/${csvFileName}`;
-      Papa.parse(csvPath, {
-        download: true,
-        header: true,
-        dynamicTyping: true,
-        complete: (result) => {
-          const parsed = result.data;
-          const formatted = valueColumns
-            .map((col) => {
-              return parsed.reduce((acc, item) => {
-                const id = item[xColumn];
-                const value = Number(item[col]);
-                if (!isNaN(value)) {
-                  acc.push({ id: `${id}`, value });
-                }
-                return acc;
-              }, []);
-            })
-            .flat();
+    const csvPath = `/assets/data/${csvFileName}`;
+    Papa.parse(csvPath, {
+      download: true,
+      header: true,
+      dynamicTyping: true,
+      complete: (result) => {
+        const parsed = result.data;
+        const formatted = valueColumns
+          .map((col) => {
+            return parsed.reduce((acc, item) => {
+              const id = item[xColumn];
+              const value = Number(item[col]);
+              if (!isNaN(value)) {
+                acc.push({ id: `${id}`, value });
+              }
+              return acc;
+            }, []);
+          })
+          .flat();
 
-          setData(formatted);
-        },
-      });
-    }
-  }, [propData, csvFileName, xColumn, valueColumns]);
+        setData(formatted);
+      },
+    });
+  }, [csvFileName, xColumn, valueColumns]);
 
   return (
     <ResponsivePie
