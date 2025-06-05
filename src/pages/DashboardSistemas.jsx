@@ -55,9 +55,10 @@ export default function DashboardSistemas() {
           groupMode: "stacked",
           tickRotation: -90,
           tickPaddingBt: 0,
-          legendOffsetBt: 51,
           legendOffsetLeft: -40,
           marginLeft: 45,
+          legendOffsetBt: 50,
+          marginBottom: 90,
           tickTextAnchor: "end",
           xMode: "anoSemestre",
           ariaLabel:
@@ -73,7 +74,8 @@ export default function DashboardSistemas() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
-          legendOffset: 50,
+          legendOffsetBt: 50,
+          marginBottom: 90,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos inscritos por ano em Superior de Tecnologia em Sistemas de Computação",
@@ -88,7 +90,8 @@ export default function DashboardSistemas() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
-          legendOffset: 50,
+          legendOffsetBt: 50,
+          marginBottom: 90,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos formados por ano em Superior de Tecnologia em Sistemas de Computação",
@@ -106,6 +109,8 @@ export default function DashboardSistemas() {
           tickRotation: -90,
           legendOffsetLeft: -40,
           marginLeft: 45,
+          legendOffsetBt: 50,
+          marginBottom: 90,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Superior de Tecnologia em Sistemas de Computação",
@@ -121,9 +126,10 @@ export default function DashboardSistemas() {
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
           tickPaddingBt: 1,
-          legendOffset: 50,
           legendOffsetLeft: -48,
           marginLeft: 54,
+          legendOffsetBt: 55,
+          marginBottom: 100,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Superior de Tecnologia em Sistemas de Computação",

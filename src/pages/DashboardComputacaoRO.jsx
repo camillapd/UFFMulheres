@@ -53,8 +53,6 @@ export default function DashboardComputacaoRO() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "stacked",
           tickRotation: -90,
-          tickPaddingBt: 0,
-          legendOffsetBt: 51,
           tickTextAnchor: "end",
           xMode: "anoSemestre",
           ariaLabel:
@@ -70,7 +68,8 @@ export default function DashboardComputacaoRO() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
-          legendOffset: 50,
+          legendOffsetBt: 50,
+          marginBottom: 90,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos inscritos por ano em Ciência da Computação em Rio das Ostras",
@@ -85,7 +84,8 @@ export default function DashboardComputacaoRO() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
-          legendOffset: 50,
+          legendOffsetBt: 50,
+          marginBottom: 90,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos formados por ano em Ciência da Computação em Rio das Ostras",
@@ -100,6 +100,8 @@ export default function DashboardComputacaoRO() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
+          legendOffsetBt: 50,
+          marginBottom: 90,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Ciência da Computação em Rio das Ostras",
@@ -115,7 +117,8 @@ export default function DashboardComputacaoRO() {
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
           tickPaddingBt: 1,
-          legendOffset: 50,
+          legendOffsetBt: 55,
+          marginBottom: 100,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Ciência da Computação em Rio das Ostras",
@@ -126,10 +129,10 @@ export default function DashboardComputacaoRO() {
 
   const cards = (
     <InfoCardGroup
-    csvPath="/assets/data/graduacao/alunos_ativos_geral.csv"
-    selectedMajor="Ciência da Computação (RO)"
-    cardTitle="Total de alunos ativos"
-  />
+      csvPath="/assets/data/graduacao/alunos_ativos_geral.csv"
+      selectedMajor="Ciência da Computação (RO)"
+      cardTitle="Total de alunos ativos"
+    />
   );
 
   const glossary = (

@@ -17,7 +17,6 @@ export default function DashboardMestrado() {
           xColumn: "Tipo",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
-          legendOffsetBt: 35,
           legendOffsetLeft: -42,
           marginLeft: 48,
           tickTextAnchor: "end",
@@ -34,7 +33,6 @@ export default function DashboardMestrado() {
           xColumn: "Razão",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
-          legendOffsetBt: 35,
           legendOffsetLeft: -42,
           marginLeft: 48,
           tickTextAnchor: "end",
@@ -51,7 +49,6 @@ export default function DashboardMestrado() {
           xColumn: "Razão",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
-          legendOffsetBt: 35,
           legendOffsetLeft: -42,
           marginLeft: 48,
           tickTextAnchor: "end",
@@ -70,6 +67,8 @@ export default function DashboardMestrado() {
           tickRotation: -90,
           legendOffset: 50,
           tickTextAnchor: "end",
+          legendOffsetBt: 50,
+          marginBottom: 90,
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos inscritos por ano no mestrado",
         }}
@@ -85,6 +84,8 @@ export default function DashboardMestrado() {
           tickRotation: -90,
           legendOffset: 50,
           tickTextAnchor: "end",
+          legendOffsetBt: 50,
+          marginBottom: 90,
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos formados por ano no mestrado",
         }}
@@ -99,6 +100,8 @@ export default function DashboardMestrado() {
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
           tickTextAnchor: "end",
+          legendOffsetBt: 50,
+          marginBottom: 90,
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desligados, por rendimento insuficiente, por ano no mestrado",
         }}
@@ -113,6 +116,8 @@ export default function DashboardMestrado() {
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
           tickTextAnchor: "end",
+          legendOffsetBt: 50,
+          marginBottom: 90,
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desistentes por ano no mestrado",
         }}
@@ -127,6 +132,8 @@ export default function DashboardMestrado() {
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
           tickTextAnchor: "end",
+          legendOffsetBt: 50,
+          marginBottom: 90,
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos que pediram trancamento, por ano no mestrado",
         }}

@@ -35,7 +35,6 @@ export default function DashboardInformacao() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "stacked",
           layout: "horizontal",
-          legendOffsetBt: 35,
           legendOffsetLeft: -180,
           tickTextAnchor: "end",
           marginLeft: 190,
@@ -54,7 +53,8 @@ export default function DashboardInformacao() {
           groupMode: "stacked",
           tickRotation: -90,
           tickPaddingBt: 0,
-          legendOffsetBt: 51,
+          legendOffsetBt: 50,
+          marginBottom: 90,
           tickTextAnchor: "end",
           xMode: "anoSemestre",
           ariaLabel:
@@ -70,7 +70,8 @@ export default function DashboardInformacao() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
-          legendOffset: 50,
+          legendOffsetBt: 50,
+          marginBottom: 90,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos inscritos por ano em Sistemas de Informação",
@@ -85,7 +86,8 @@ export default function DashboardInformacao() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
-          legendOffset: 50,
+          legendOffsetBt: 50,
+          marginBottom: 90,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos formados por ano em Sistemas de Informação",
@@ -100,6 +102,8 @@ export default function DashboardInformacao() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
+          legendOffsetBt: 50,
+          marginBottom: 90,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Sistemas de Informação",
@@ -115,7 +119,8 @@ export default function DashboardInformacao() {
           valueColumns: ["Feminino", "Masculino"],
           tickRotation: -90,
           tickPaddingBt: 1,
-          legendOffset: 50,
+          legendOffsetBt: 55,
+          marginBottom: 100,
           tickTextAnchor: "end",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Sistemas de Informação",
