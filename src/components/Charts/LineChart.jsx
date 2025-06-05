@@ -6,15 +6,28 @@ const LineChart = ({
   majors,
   ariaLabel,
   tickRotation,
-  legendOffsetBt = 45,
+  legendOffsetBt = 40,
   tickPaddingBt = 5,
-  marginBottom = 60,
+  marginBottom = 50,
+  xMode = "ano",
 }) => {
   const [data, setData] = useState([]);
+
+  const getIndexValue = (item) => {
+    if (xMode === "anoSemestre") {
+      if (item.Ano !== undefined && item.Semestre !== undefined) {
+        return `${item.Ano}.${item.Semestre}`;
+      }
+      return item.Ano;
+    }
+
+    return item.Ano;
+  };
 
   useEffect(() => {
     const promises = majors.map((major) => {
       const csvPath = `${major.folder}/${major.name}.csv`;
+
       return new Promise((resolve) => {
         Papa.parse(csvPath, {
           download: true,
@@ -22,7 +35,6 @@ const LineChart = ({
           dynamicTyping: true,
           complete: (result) => {
             const rows = result.data;
-            const hasSemester = rows.length > 0 && "Semestre" in rows[0];
 
             const points = rows
               .filter(
@@ -30,24 +42,31 @@ const LineChart = ({
                   row.Feminino !== undefined && row.Feminino !== null && row.Ano
               )
               .map((row) => ({
-                x: hasSemester ? `${row.Ano}.${row.Semestre}` : row.Ano,
+                x: getIndexValue(row),
                 y: row.Feminino,
               }))
-              .sort((a, b) => Number(a.x) - Number(b.x));
+              .sort((a, b) => String(a.x).localeCompare(String(b.x)));
 
-            resolve({ id: major.displayName, data: points });
+            resolve([
+              {
+                id: major.displayName,
+                data: points,
+              },
+            ]);
           },
         });
       });
     });
 
-    Promise.all(promises).then((results) => setData(results));
-  }, [majors]);
+    Promise.all(promises).then((results) => {
+      setData(results.flat());
+    });
+  }, [majors, xMode]);
 
   return (
     <ResponsiveLine
       data={data}
-      margin={{ top: 30, right: 45, bottom: marginBottom, left: 45 }}
+      margin={{ top: 30, right: 25, bottom: marginBottom, left: 45 }}
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",
