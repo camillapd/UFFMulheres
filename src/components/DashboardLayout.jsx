@@ -12,8 +12,6 @@ export default function DashboardLayout({ title, cards, charts, glossary }) {
       <section className="info-cards">{cards}</section>
 
       <div className="content-charts">{charts}</div>
-
-      <section className="content-glossary">{glossary}</section>
     </div>
   );
 }

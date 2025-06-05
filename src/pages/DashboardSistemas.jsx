@@ -2,9 +2,6 @@ import DashboardLayout from "../components/DashboardLayout";
 import ChartCard from "../components/ChartCard";
 import BarChart from "../components/Charts/BarChart";
 import InfoCardGroup from "../components/InfoCardGroup";
-import Glossary from "../components/Glossary";
-import { glossaryEad } from "../glossaries/glossaryEad";
-import { formatGlossary } from "../utils/formatGlossary";
 
 export default function DashboardSistemas() {
   const charts = (
@@ -146,18 +143,11 @@ export default function DashboardSistemas() {
     />
   );
 
-  const glossary = (
-    <>
-      <Glossary content={formatGlossary(glossaryEad)} />
-    </>
-  );
-
   return (
     <DashboardLayout
       title="Dashboard de Superior de Tecnologia em Sistemas de Computação"
       cards={cards}
       charts={charts}
-      glossary={glossary}
     ></DashboardLayout>
   );
 }

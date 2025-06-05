@@ -2,9 +2,6 @@ import DashboardLayout from "../components/DashboardLayout";
 import ChartCard from "../components/ChartCard";
 import BarChart from "../components/Charts/BarChart";
 import InfoCardGroup from "../components/InfoCardGroup";
-import Glossary from "../components/Glossary";
-import { glossaryGrad } from "../glossaries/glossaryGrad";
-import { formatGlossary } from "../utils/formatGlossary";
 
 export default function DashboardInformacao() {
   const charts = (
@@ -137,18 +134,11 @@ export default function DashboardInformacao() {
     />
   );
 
-  const glossary = (
-    <>
-      <Glossary content={formatGlossary(glossaryGrad)} />
-    </>
-  );
-
   return (
     <DashboardLayout
       title="Dashboard de Sistemas de Informação"
       cards={cards}
       charts={charts}
-      glossary={glossary}
     ></DashboardLayout>
   );
 }

@@ -2,9 +2,6 @@ import DashboardLayout from "../components/DashboardLayout";
 import ChartCard from "../components/ChartCard";
 import BarChart from "../components/Charts/BarChart";
 import InfoCardGroup from "../components/InfoCardGroup";
-import Glossary from "../components/Glossary";
-import { glossaryPos } from "../glossaries/glossaryPos";
-import { formatGlossary } from "../utils/formatGlossary";
 
 export default function DashboardDoutorado() {
   const charts = (
@@ -149,18 +146,11 @@ export default function DashboardDoutorado() {
     />
   );
 
-  const glossary = (
-    <>
-      <Glossary content={formatGlossary(glossaryPos)} />
-    </>
-  );
-
   return (
     <DashboardLayout
       title="Dashboard do Doutorado"
       cards={cards}
       charts={charts}
-      glossary={glossary}
     ></DashboardLayout>
   );
 }
