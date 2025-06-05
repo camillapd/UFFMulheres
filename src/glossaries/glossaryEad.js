@@ -4,18 +4,6 @@ export const glossaryEad = [
     meaning: ".",
   },
   {
-    term: "Aluno Inscrito",
-    meaning: ".",
-  },
-  {
-    term: "Aluno Pendente",
-    meaning: ".",
-  },
-  {
-    term: "Aluno Concluinte",
-    meaning: ".",
-  },
-  {
     term: "Aluno Trancado",
     meaning: ".",
   },
@@ -29,10 +17,6 @@ export const glossaryEad = [
   },
   {
     term: "Aluno Aguardando Atualização",
-    meaning: ".",
-  },
-  {
-    term: "Aluno Desistente",
     meaning: ".",
   },
   {
