@@ -10,15 +10,15 @@ const BarChart = ({
   layout,
   tickRotation,
   tickPaddingBt = 5,
-  legendOffsetBt = 50,
+  legendOffsetBt = 40,
   legendOffsetLeft = -35,
   legendBtText,
   legendLeftText,
   tickTextAnchor = "middle",
   marginLeft = 40,
+  marginBottom = 85,
   ariaLabel,
   xMode = "ano",
-  data: propData,
 }) => {
   const [data, setData] = useState([]);
   const [rawData, setRawData] = useState([]);
@@ -88,7 +88,7 @@ const BarChart = ({
         }
       },
     });
-  }, [propData, csvFileName, xColumn, valueColumns, xMode]);
+  }, [csvFileName, xColumn, valueColumns, xMode]);
 
   useEffect(() => {
     if (!rawData || rawData.length === 0) return;
@@ -203,7 +203,7 @@ const BarChart = ({
         data={data}
         keys={keysToShow}
         indexBy="index"
-        margin={{ top: 30, right: 0, bottom: 55, left: marginLeft }}
+        margin={{ top: 30, right: 0, bottom: marginBottom, left: marginLeft }}
         groupMode={groupMode}
         layout={layout}
         valueScale={{ type: "linear" }}
