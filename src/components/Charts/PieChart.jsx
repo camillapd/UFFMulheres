@@ -7,8 +7,10 @@ const PieChart = ({
   xColumn,
   valueColumns,
   data: propData,
-  translateY = 140,
+  translateY = 170,
   translateX = 100,
+  marginBottom = 40,
+  startAngle,
 }) => {
   const [data, setData] = useState([]);
 
@@ -45,8 +47,8 @@ const PieChart = ({
   return (
     <ResponsivePie
       data={data}
-      margin={{ top: 30, right: 100, bottom: 50, left: 30 }}
-      startAngle={-50}
+      margin={{ top: 30, right: 100, bottom: marginBottom, left: 20 }}
+      startAngle={startAngle}
       innerRadius={0.5}
       padAngle={1.5}
       cornerRadius={3}
@@ -70,7 +72,7 @@ const PieChart = ({
           translateY: translateY,
           translateX: translateX,
           itemWidth: 100,
-          itemHeight: 18,
+          itemHeight: 20,
           symbolShape: "circle",
           itemDirection: "right-to-left",
         },
