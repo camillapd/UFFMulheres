@@ -4,9 +4,6 @@ import InfoCardGroup from "../components/InfoCardGroup";
 import PieChart from "../components/Charts/PieChart";
 import BarChart from "../components/Charts/BarChart";
 import LineChart from "../components/Charts/LineChart";
-import Glossary from "../components/Glossary";
-import { glossaryHome } from "../glossaries/glossaryHome";
-import { formatGlossary } from "../utils/formatGlossary";
 
 export default function Home() {
   const charts = (
@@ -300,18 +297,11 @@ export default function Home() {
     </>
   );
 
-  const glossary = (
-    <>
-      <Glossary content={formatGlossary(glossaryHome)} />
-    </>
-  );
-
   return (
     <DashboardLayout
       title="Home"
       cards={cards}
       charts={charts}
-      glossary={glossary}
     ></DashboardLayout>
   );
 }
