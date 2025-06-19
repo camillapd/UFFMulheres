@@ -41,3 +41,7 @@
   gap: 1rem;
   width: 100%;
 }
+
+.content-glossary {
+  align-self: flex-start;
+}
