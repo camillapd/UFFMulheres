@@ -35,6 +35,7 @@ const Sidebar = () => {
         <div className="sidebar-menus sidebar">
           <button onClick={() => navigate("/")}>Home</button>
           <button onClick={() => navigate("/about")}>About</button>
+          <button onClick={() => navigate("/glossario")}>Glossário</button>
           <DropdownMenu title="Graduação" items={cursosGraduacao} />
           <DropdownMenu title="Pós Graduação" items={cursosPos} />
         </div>
