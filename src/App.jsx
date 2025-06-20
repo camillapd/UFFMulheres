@@ -7,6 +7,7 @@ import DashboardComputacaoRO from "./pages/DashboardComputacaoRO";
 import DashboardSistemas from "./pages/DashboardSistemas";
 import DashboardMestrado from "./pages/DashboardMestrado";
 import DashboardDoutorado from "./pages/DashboardDoutorado";
+import About from "./pages/About";
 import Glossario from "./pages/Glossario";
 import Home from "./pages/Home";
 
@@ -18,6 +19,7 @@ function App() {
         <main className="content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/glossario" element={<Glossario />} />
             <Route path="/computacao" element={<DashboardComputacao />} />
             <Route path="/informacao" element={<DashboardInformacao />} />
