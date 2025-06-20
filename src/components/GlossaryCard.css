@@ -1,12 +1,14 @@
 .glossary-card {
   background: white;
-  border-radius: 0.8rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin: 1rem 0;
-  padding: 10px 25px;
-  width: 90%;
+  border-radius: 6px;
+  border-left: 6px solid #4a90e2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
   text-align: justify;
   transition: transform 0.2s ease;
+  color: #222;
 }
 
 .glossary-card:hover {
@@ -16,9 +18,10 @@
 .glossary-card h2 {
   font-size: 1.4rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #222;
   text-align: center;
-  color: #333;
 }
 
 .glossary-card dl dt {
