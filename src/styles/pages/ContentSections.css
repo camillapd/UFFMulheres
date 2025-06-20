@@ -1,0 +1,60 @@
+.content-section {
+  padding: 25px 35px;
+}
+
+.content-section p {
+  width: 98%;
+  text-align: justify;
+  justify-content: center;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.content-section h3 {
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.content-section .about-intro {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+  background-color: white;
+  border-radius: 0.8rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.content-section .about-section {
+  border-left: 6px solid #4a90e2;
+  background-color: white;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.content-section a {
+  color: #006699;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.content-section a:hover,
+.content-section a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+.content-section ul,
+.content-section ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.content-section li {
+  margin-bottom: 0.5rem;
+}
