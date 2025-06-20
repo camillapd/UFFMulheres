@@ -3,7 +3,7 @@ import { glossaryGrad } from "../glossaries/glossaryGrad";
 import { glossaryEad } from "../glossaries/glossaryEad";
 import { glossaryPos } from "../glossaries/glossaryPos";
 import { formatGlossary } from "../utils/formatGlossary";
-import "../components/DashboardLayout.css";
+import "../components/Layout.css";
 
 export default function Glossario() {
   const glossaryCardGrad = (
@@ -31,16 +31,16 @@ export default function Glossario() {
   );
 
   return (
-    <div className="dashboard-layout">
-      <header className="dashboard-header">
+    <div className="content-layout">
+      <header className="content-header">
         <div className="header-title">
           <h2>Glossário de termos</h2>
         </div>
       </header>
 
-      <section className="content-glossary">{glossaryCardGrad}</section>
-      <section className="content-glossary">{glossaryCardEad}</section>
-      <section className="content-glossary">{glossaryCardPos}</section>
+      <section>{glossaryCardGrad}</section>
+      <section>{glossaryCardEad}</section>
+      <section>{glossaryCardPos}</section>
     </div>
   );
 }
