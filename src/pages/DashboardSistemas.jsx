@@ -15,10 +15,7 @@ export default function DashboardSistemas() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "stacked",
           layout: "horizontal",
-          legendOffsetBt: 35,
-          legendOffsetLeft: -180,
-          tickTextAnchor: "end",
-          marginLeft: 190,
+          preset: "defaultHorizontal",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos em Superior de Tecnologia em Sistemas de Computação por situação",
         }}
@@ -33,10 +30,7 @@ export default function DashboardSistemas() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "stacked",
           layout: "horizontal",
-          legendOffsetBt: 35,
-          legendOffsetLeft: -180,
-          tickTextAnchor: "end",
-          marginLeft: 190,
+          preset: "defaultHorizontal",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos de Superior de Tecnologia em Sistemas de Computação por forma de ingresso",
         }}
@@ -50,14 +44,8 @@ export default function DashboardSistemas() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "stacked",
-          tickRotation: -90,
-          tickPaddingBt: 0,
-          legendOffsetLeft: -40,
-          marginLeft: 45,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
           xMode: "anoSemestre",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos de Superior de Tecnologia em Sistemas de Computação por ano de ingresso",
         }}
@@ -70,10 +58,7 @@ export default function DashboardSistemas() {
           csvFileName: "graduacao/sistemas/sc_inscritos_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos inscritos por ano em Superior de Tecnologia em Sistemas de Computação",
         }}
@@ -86,10 +71,7 @@ export default function DashboardSistemas() {
           csvFileName: "graduacao/sistemas/sc_formados_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos formados por ano em Superior de Tecnologia em Sistemas de Computação",
         }}
@@ -103,12 +85,7 @@ export default function DashboardSistemas() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
-          tickRotation: -90,
-          legendOffsetLeft: -40,
-          marginLeft: 45,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Superior de Tecnologia em Sistemas de Computação",
         }}
@@ -119,15 +96,10 @@ export default function DashboardSistemas() {
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/sistemas/sc_ativos_historico.csv",
-          xColumn: "Ano",
+          xColumn: "Semestre",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          tickPaddingBt: 1,
-          legendOffsetLeft: -48,
-          marginLeft: 54,
-          legendOffsetBt: 55,
-          marginBottom: 100,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
+          forceHorizontalOnMobile: true,
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Superior de Tecnologia em Sistemas de Computação",
         }}

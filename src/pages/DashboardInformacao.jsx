@@ -14,10 +14,7 @@ export default function DashboardInformacao() {
           xColumn: "Situação",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
-          legendOffsetBt: 35,
-          legendOffsetLeft: -42,
-          marginLeft: 48,
-          tickTextAnchor: "end",
+          preset: "defaultFilter",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos em Sistemas de Informação por situação",
         }}
@@ -32,9 +29,7 @@ export default function DashboardInformacao() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "stacked",
           layout: "horizontal",
-          legendOffsetLeft: -180,
-          tickTextAnchor: "end",
-          marginLeft: 190,
+          preset: "defaultHorizontal",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos de Sistemas de Informação por forma de ingresso",
         }}
@@ -48,12 +43,8 @@ export default function DashboardInformacao() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "stacked",
-          tickRotation: -90,
-          tickPaddingBt: 0,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
           xMode: "anoSemestre",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos de Sistemas de Informação por ano de ingresso",
         }}
@@ -66,10 +57,7 @@ export default function DashboardInformacao() {
           csvFileName: "graduacao/informacao/si_inscritos_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos inscritos por ano em Sistemas de Informação",
         }}
@@ -82,10 +70,7 @@ export default function DashboardInformacao() {
           csvFileName: "graduacao/informacao/si_formados_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos formados por ano em Sistemas de Informação",
         }}
@@ -98,10 +83,7 @@ export default function DashboardInformacao() {
           csvFileName: "graduacao/informacao/si_desistentes_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Sistemas de Informação",
         }}
@@ -112,13 +94,10 @@ export default function DashboardInformacao() {
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/informacao/si_ativos_historico.csv",
-          xColumn: "Ano",
+          xColumn: "Semestre",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          tickPaddingBt: 1,
-          legendOffsetBt: 55,
-          marginBottom: 100,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
+          forceHorizontalOnMobile: true,
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Sistemas de Informação",
         }}

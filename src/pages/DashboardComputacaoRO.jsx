@@ -14,10 +14,7 @@ export default function DashboardComputacaoRO() {
           xColumn: "Situação",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
-          legendOffsetBt: 35,
-          legendOffsetLeft: -42,
-          marginLeft: 48,
-          tickTextAnchor: "end",
+          preset: "defaultFilter",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos em Ciência da Computação em Rio das Ostras por situação",
         }}
@@ -32,10 +29,7 @@ export default function DashboardComputacaoRO() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "stacked",
           layout: "horizontal",
-          legendOffsetBt: 35,
-          legendOffsetLeft: -180,
-          tickTextAnchor: "end",
-          marginLeft: 190,
+          preset: "defaultHorizontal",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos de Ciência da Computação em Rio das Ostras por forma de ingresso",
         }}
@@ -49,12 +43,8 @@ export default function DashboardComputacaoRO() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "stacked",
-          tickRotation: -90,
-          tickPaddingBt: 0,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
           xMode: "anoSemestre",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos de Ciência da Computação em Rio das Ostras por ano de ingresso",
         }}
@@ -67,10 +57,7 @@ export default function DashboardComputacaoRO() {
           csvFileName: "graduacao/computacao(ro)/ro_inscritos_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos inscritos por ano em Ciência da Computação em Rio das Ostras",
         }}
@@ -83,10 +70,7 @@ export default function DashboardComputacaoRO() {
           csvFileName: "graduacao/computacao(ro)/ro_formados_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos formados por ano em Ciência da Computação em Rio das Ostras",
         }}
@@ -99,10 +83,7 @@ export default function DashboardComputacaoRO() {
           csvFileName: "graduacao/computacao(ro)/ro_desistentes_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Ciência da Computação em Rio das Ostras",
         }}
@@ -113,13 +94,10 @@ export default function DashboardComputacaoRO() {
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao(ro)/ro_ativos_historico.csv",
-          xColumn: "Ano",
+          xColumn: "Semestre",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          tickPaddingBt: 1,
-          legendOffsetBt: 55,
-          marginBottom: 100,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
+          forceHorizontalOnMobile: true,
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Ciência da Computação em Rio das Ostras",
         }}

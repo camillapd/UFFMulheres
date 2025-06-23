@@ -14,9 +14,7 @@ export default function DashboardComputacao() {
           xColumn: "Situação",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
-          legendOffsetLeft: -42,
-          marginLeft: 48,
-          tickTextAnchor: "end",
+          preset: "defaultFilter",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos em Ciência da Computação por situação",
         }}
@@ -31,9 +29,7 @@ export default function DashboardComputacao() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "stacked",
           layout: "horizontal",
-          legendOffsetLeft: -180,
-          tickTextAnchor: "end",
-          marginLeft: 190,
+          preset: "defaultHorizontal",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos de Ciência da Computação por forma de ingresso",
         }}
@@ -47,12 +43,8 @@ export default function DashboardComputacao() {
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "stacked",
-          tickRotation: -90,
-          tickPaddingBt: 0,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
           xMode: "anoSemestre",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos de Ciência da Computação por ano de ingresso",
         }}
@@ -65,10 +57,7 @@ export default function DashboardComputacao() {
           csvFileName: "graduacao/computacao/cc_inscritos_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos inscritos por ano em Ciência da Computação",
         }}
@@ -81,10 +70,7 @@ export default function DashboardComputacao() {
           csvFileName: "graduacao/computacao/cc_formados_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos formados por ano em Ciência da Computação",
         }}
@@ -97,10 +83,7 @@ export default function DashboardComputacao() {
           csvFileName: "graduacao/computacao/cc_desistentes_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffsetBt: 50,
-          marginBottom: 90,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Ciência da Computação",
         }}
@@ -111,13 +94,10 @@ export default function DashboardComputacao() {
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao/cc_ativos_historico.csv",
-          xColumn: "Ano",
+          xColumn: "Semestre",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          tickPaddingBt: 1,
-          legendOffsetBt: 55,
-          marginBottom: 100,
-          tickTextAnchor: "end",
+          preset: "rotatedAxis",
+          forceHorizontalOnMobile: true,
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Ciência da Computação",
         }}
