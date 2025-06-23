@@ -41,3 +41,13 @@
   gap: 1rem;
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .info-cards > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+}
