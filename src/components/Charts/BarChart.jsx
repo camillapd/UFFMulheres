@@ -16,6 +16,7 @@ const BarChart = ({
   xMode = "ano",
   preset = "defaultFilter",
   forceHorizontalOnMobile = false,
+  desligadosPos = false,
 }) => {
   const [data, setData] = useState([]);
   const [rawData, setRawData] = useState([]);
@@ -146,14 +147,16 @@ const BarChart = ({
   const presets = {
     defaultFilter: {
       marginBottom: 85,
-      marginBottomMobile: 75,
+      marginBottomMobile: desligadosPos ? 150 : 75,
       marginLeft: 48,
       marginLeftMobile: 50,
       legendOffsetLeft: -40,
       legendOffsetLeftMobile: -42,
       legendOffsetBottom: 40,
-      legendOffsetBottomMobile: 35,
+      legendOffsetBottomMobile: desligadosPos ? 100 : 35,
       tickPaddingBottom: 5,
+      tickRotationBottom: 0,
+      tickRotationBottomMobile: desligadosPos ? -90 : 0,
     },
     defaultHorizontal: {
       marginBottom: 85,
