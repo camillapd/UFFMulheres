@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
 import { ResponsiveBar } from "@nivo/bar";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const BarChart = ({
   csvFileName,
   xColumn,
   valueColumns,
   groupMode,
-  layout,
-  tickRotation,
-  tickPaddingBt = 5,
-  legendOffsetBt = 40,
-  legendOffsetLeft = -35,
+  layout = "vertical",
   legendBtText,
   legendLeftText,
-  tickTextAnchor = "middle",
-  marginLeft = 40,
-  marginBottom = 85,
+  tickTextAnchor = "end",
   ariaLabel,
   xMode = "ano",
+  preset = "defaultFilter",
+  forceHorizontalOnMobile = false,
 }) => {
   const [data, setData] = useState([]);
   const [rawData, setRawData] = useState([]);
@@ -112,7 +109,6 @@ const BarChart = ({
       });
       setData(Object.values(grouped));
     } else {
-
       let wideFiltered = [...rawData];
       if (filters.sexo !== "Todos") {
         if (filters.sexo === "Masculino") {
@@ -145,47 +141,128 @@ const BarChart = ({
     return valueColumns;
   }, [filters.sexo, valueColumns, isLongFormat]);
 
-  const bottomLegend =
-    legendBtText || (layout === "vertical" ? xColumn : "Quantidade de alunos");
+  const isMobile = useIsMobile();
 
-  const leftLegend =
-    legendLeftText ||
-    (layout === "vertical" ? "Quantidade de alunos" : xColumn);
-
-  const getBarChartAxes = () => {
-    const isHorizontal = layout === "horizontal";
-
-    const axisLeft = isHorizontal
-      ? {
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: leftLegend,
-          legendPosition: "middle",
-          legendOffset: legendOffsetLeft,
-          truncateTickAt: 0,
-        }
-      : {
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: leftLegend,
-          legendPosition: "middle",
-          legendOffset: legendOffsetLeft,
-          truncateTickAt: 0,
-          format: (value) => (Number.isInteger(value) ? value : ""),
-        };
-
-    return { axisLeft };
+  const presets = {
+    defaultFilter: {
+      marginBottom: 85,
+      marginBottomMobile: 75,
+      marginLeft: 48,
+      marginLeftMobile: 50,
+      legendOffsetLeft: -40,
+      legendOffsetLeftMobile: -42,
+      legendOffsetBottom: 40,
+      legendOffsetBottomMobile: 35,
+      tickPaddingBottom: 5,
+    },
+    defaultHorizontal: {
+      marginBottom: 85,
+      marginBottomMobile: 250,
+      marginLeft: 220,
+      marginLeftMobile: 48,
+      legendOffsetLeft: -210,
+      legendOffsetLeftMobile: -42,
+      legendOffsetBottom: 40,
+      legendOffsetBottomMobile: 200,
+      tickPaddingBottom: 5,
+      tickRotationBottom: 0,
+      tickRotationBottomMobile: -90,
+    },
+    rotatedAxis: {
+      marginBottom: 90,
+      marginBottomMobile: 70,
+      marginLeft: 48,
+      marginLeftMobile: 65,
+      legendOffsetLeft: -40,
+      legendOffsetLeftMobile: -55,
+      legendOffsetBottom: 50,
+      legendOffsetBottomMobile: 50,
+      tickPaddingBottom: 5,
+      tickRotationBottom: -90,
+    },
   };
 
-  const { axisLeft } = getBarChartAxes();
+  const selectedPreset = presets[preset] ?? presets.defaultFilter;
+
+  const currentMarginBottom = isMobile
+    ? selectedPreset.marginBottomMobile ?? selectedPreset.marginBottom
+    : selectedPreset.marginBottom;
+
+  const currentMarginLeft = isMobile
+    ? selectedPreset.marginLeftMobile ?? selectedPreset.marginLeft
+    : selectedPreset.marginLeft;
+
+  const currentLegendOffsetLeft = isMobile
+    ? selectedPreset.legendOffsetLeftMobile ?? selectedPreset.legendOffsetLeft
+    : selectedPreset.legendOffsetLeft;
+
+  const currentLegendOffsetBottom = isMobile
+    ? selectedPreset.legendOffsetBottomMobile ??
+      selectedPreset.legendOffsetBottom
+    : selectedPreset.legendOffsetBottom;
+
+  const currentTickRotationBottom = isMobile
+    ? selectedPreset.tickRotationBottomMobile ??
+      selectedPreset.tickRotationBottom
+    : selectedPreset.tickRotationBottom;
+
+  const currentTickPaddingBottom = selectedPreset.tickPaddingBottom;
+
+  const finalLayout = isMobile
+    ? forceHorizontalOnMobile
+      ? "horizontal"
+      : layout === "horizontal"
+      ? "vertical"
+      : layout
+    : layout;
+
+  const isHorizontal = finalLayout === "horizontal";
+
+  const getAxisProps = () => {
+    const categoryLegend = xColumn;
+    const valueLegend = "Quantidade de alunos";
+
+    const categoryAxisLegend = isHorizontal
+      ? legendLeftText ?? categoryLegend
+      : legendBtText ?? categoryLegend;
+
+    const valueAxisLegend = isHorizontal
+      ? legendBtText ?? valueLegend
+      : legendLeftText ?? valueLegend;
+
+    const axisBottom = {
+      tickSize: 5,
+      tickPadding: currentTickPaddingBottom,
+      tickRotation: currentTickRotationBottom,
+      legend: isHorizontal ? valueAxisLegend : categoryAxisLegend,
+      legendPosition: "middle",
+      legendOffset: currentLegendOffsetBottom,
+      truncateTickAt: 0,
+    };
+
+    const axisLeft = {
+      tickSize: 5,
+      tickPadding: 5,
+      tickRotation: 0,
+      legend: isHorizontal ? categoryAxisLegend : valueAxisLegend,
+      legendPosition: "middle",
+      legendOffset: currentLegendOffsetLeft,
+      truncateTickAt: 0,
+      format: !isHorizontal
+        ? (value) => (Number.isInteger(value) ? value : "")
+        : undefined,
+    };
+
+    return { axisBottom, axisLeft };
+  };
+
+  const { axisBottom, axisLeft } = getAxisProps();
 
   return (
     <>
       <div className="filter-container">
         <label>
-          Filtrar alunos: {" "}
+          Filtrar alunos:{" "}
           <select
             value={filters.sexo}
             onChange={(e) =>
@@ -203,9 +280,14 @@ const BarChart = ({
         data={data}
         keys={keysToShow}
         indexBy="index"
-        margin={{ top: 30, right: 0, bottom: marginBottom, left: marginLeft }}
+        margin={{
+          top: 30,
+          right: 0,
+          bottom: currentMarginBottom,
+          left: currentMarginLeft,
+        }}
         groupMode={groupMode}
-        layout={layout}
+        layout={finalLayout}
         valueScale={{ type: "linear" }}
         indexScale={{ type: "band", round: true, padding: 0.5 }}
         colors={({ id }) => {
@@ -217,15 +299,7 @@ const BarChart = ({
         }}
         axisTop={null}
         axisRight={null}
-        axisBottom={{
-          tickSize: 5,
-          tickPadding: tickPaddingBt,
-          tickRotation,
-          legend: bottomLegend,
-          legendPosition: "middle",
-          legendOffset: legendOffsetBt,
-          truncateTickAt: 0,
-        }}
+        axisBottom={axisBottom}
         axisLeft={axisLeft}
         labelSkipWidth={18}
         labelSkipHeight={10}
