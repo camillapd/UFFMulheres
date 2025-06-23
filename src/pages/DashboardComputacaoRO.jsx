@@ -50,6 +50,9 @@ export default function DashboardComputacaoRO() {
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "stacked",
           tickRotation: -90,
+          tickPaddingBt: 0,
+          legendOffsetBt: 50,
+          marginBottom: 90,
           tickTextAnchor: "end",
           xMode: "anoSemestre",
           ariaLabel:
