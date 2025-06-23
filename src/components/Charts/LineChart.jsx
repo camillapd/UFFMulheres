@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import { ResponsiveLine } from "@nivo/line";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const LineChart = ({
   majors,
   ariaLabel,
   tickRotation,
-  legendOffsetBt = 40,
+  legendOffsetBottom = 40,
   tickPaddingBt = 5,
   marginBottom = 50,
   xMode = "ano",
@@ -63,6 +64,8 @@ const LineChart = ({
     });
   }, [majors, xMode]);
 
+  const isMobile = useIsMobile();
+
   return (
     <ResponsiveLine
       data={data}
@@ -80,9 +83,9 @@ const LineChart = ({
       axisBottom={{
         orient: "bottom",
         tickSize: 5,
-        tickRotation,
+        tickRotation: isMobile? -90 : tickRotation,
         legend: "Ano",
-        legendOffset: legendOffsetBt,
+        legendOffset: legendOffsetBottom,
         tickPadding: tickPaddingBt,
         legendPosition: "middle",
       }}

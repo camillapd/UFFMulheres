@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import { ResponsivePie } from "@nivo/pie";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const PieChart = ({
   csvFileName,
@@ -39,10 +40,17 @@ const PieChart = ({
     });
   }, [csvFileName, xColumn, valueColumns]);
 
+  const isMobile = useIsMobile();
+
   return (
     <ResponsivePie
       data={data}
-      margin={{ top: 30, right: 100, bottom: marginBottom, left: 20 }}
+      margin={{
+        top: isMobile ? 0 : 30,
+        right: isMobile ? 10 : 100,
+        bottom: isMobile ? 30 : marginBottom,
+        left: isMobile ? 10 : 20,
+      }}
       startAngle={startAngle}
       innerRadius={0.5}
       padAngle={1.5}
@@ -50,6 +58,7 @@ const PieChart = ({
       activeOuterRadiusOffset={8}
       borderWidth={1}
       borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
+      enableArcLinkLabels={isMobile ? false : true}
       arcLinkLabelsTextOffset={0}
       arcLinkLabelsTextColor="#333333"
       arcLinkLabelsDiagonalLength={10}
@@ -62,10 +71,10 @@ const PieChart = ({
       motionConfig="gentle"
       legends={[
         {
-          anchor: "right",
+          anchor: isMobile ? "bottom" : "right",
           direction: "column",
-          translateY: translateY,
-          translateX: translateX,
+          translateY: isMobile ? 5 : translateY,
+          translateX: isMobile ? 0 : translateX,
           itemWidth: 100,
           itemHeight: 20,
           symbolShape: "circle",
