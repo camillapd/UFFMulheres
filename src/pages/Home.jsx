@@ -47,7 +47,7 @@ export default function Home() {
           ],
           tickRotation: -90,
           marginBottom: 65,
-          legendOffsetBt: 55,
+          legendOffsetBottom: 55,
           xMode: "anoSemestre",
           ariaLabel:
             "Gráfico de linha de alunas ativas inscritas por ano e curso",
@@ -179,7 +179,7 @@ export default function Home() {
           ],
           tickRotation: -90,
           marginBottom: 60,
-          legendOffsetBt: 50,
+          legendOffsetBottom: 50,
           ariaLabel:
             "Gráfico de linha do histórico de alunas inscritas na graduação por curso",
         }}
@@ -203,7 +203,7 @@ export default function Home() {
           ],
           tickRotation: -90,
           marginBottom: 60,
-          legendOffsetBt: 50,
+          legendOffsetBottom: 50,
           ariaLabel:
             "Gráfico de linha do histórico de alunas formadas na graduação por curso",
         }}
@@ -260,9 +260,7 @@ export default function Home() {
           xColumn: "Curso",
           valueColumns: ["Feminino", "Masculino"],
           layout: "horizontal",
-          legendOffsetLeft: -220,
-          tickTextAnchor: "end",
-          marginLeft: 230,
+          preset: "defaultHorizontal",
           ariaLabel:
             "Gráfico de barras dos alunos da pós que declararam sua formação em Graduação",
         }}
@@ -274,6 +272,8 @@ export default function Home() {
           csvFileName: "posgrad/formacao_em_mestrado.csv",
           xColumn: "Curso",
           valueColumns: ["Feminino", "Masculino"],
+          layout: "horizontal",
+          preset: "defaultHorizontal",
           ariaLabel:
             "Gráfico de barras dos alunos da pós que declararam sua formação em Mestrado",
         }}
