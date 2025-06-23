@@ -113,7 +113,7 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Analytics, Ensino de Graduação - UFF
+              Painel de Indicadores da Graduação
             </a>
           </li>
           <li>
