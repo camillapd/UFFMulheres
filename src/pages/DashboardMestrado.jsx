@@ -14,9 +14,7 @@ export default function DashboardMestrado() {
           xColumn: "Tipo",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
-          legendOffsetLeft: -42,
-          marginLeft: 48,
-          tickTextAnchor: "end",
+          preset: "defaultFilter",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos ativos no mestrado",
         }}
@@ -30,9 +28,7 @@ export default function DashboardMestrado() {
           xColumn: "Razão",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
-          legendOffsetLeft: -42,
-          marginLeft: 48,
-          tickTextAnchor: "end",
+          preset: "defaultFilter",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos que pediram prorrogação no mestrado",
         }}
@@ -46,9 +42,8 @@ export default function DashboardMestrado() {
           xColumn: "Razão",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
-          legendOffsetLeft: -42,
-          marginLeft: 48,
-          tickTextAnchor: "end",
+          preset: "defaultFilter",
+          desligadosPos: true,
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos do mestrado que foram desligados da UFF, por razão",
         }}
@@ -61,11 +56,7 @@ export default function DashboardMestrado() {
           csvFileName: "posgrad/mestrado/mestrado_inscritos_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffset: 50,
-          tickTextAnchor: "end",
-          legendOffsetBt: 50,
-          marginBottom: 90,
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos inscritos por ano no mestrado",
         }}
@@ -78,11 +69,7 @@ export default function DashboardMestrado() {
           csvFileName: "posgrad/mestrado/mestrado_formados_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          legendOffset: 50,
-          tickTextAnchor: "end",
-          legendOffsetBt: 50,
-          marginBottom: 90,
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos formados por ano no mestrado",
         }}
@@ -95,10 +82,7 @@ export default function DashboardMestrado() {
           csvFileName: "posgrad/mestrado/mestrado_rendimento_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          tickTextAnchor: "end",
-          legendOffsetBt: 50,
-          marginBottom: 90,
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desligados, por rendimento insuficiente, por ano no mestrado",
         }}
@@ -111,10 +95,7 @@ export default function DashboardMestrado() {
           csvFileName: "posgrad/mestrado/mestrado_desistentes_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          tickTextAnchor: "end",
-          legendOffsetBt: 50,
-          marginBottom: 90,
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos desistentes por ano no mestrado",
         }}
@@ -127,10 +108,7 @@ export default function DashboardMestrado() {
           csvFileName: "posgrad/mestrado/mestrado_trancados_ano.csv",
           xColumn: "Ano",
           valueColumns: ["Feminino", "Masculino"],
-          tickRotation: -90,
-          tickTextAnchor: "end",
-          legendOffsetBt: 50,
-          marginBottom: 90,
+          preset: "rotatedAxis",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos que pediram trancamento, por ano no mestrado",
         }}
