@@ -17,7 +17,7 @@ export const glossaryGrad = [
   },
   {
     term: "Aluno Desistente",
-    meaning: ".",
+    meaning: "Aluno desistiu do curso de graduação.",
   },
   {
     term: "Transferência interinstucional",
