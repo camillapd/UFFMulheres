@@ -1,4 +1,4 @@
-import "../components/Layout.css";
+import "../components/Layouts/Layout.css";
 import "../styles/pages/ContentSections.css";
 
 export default function About() {

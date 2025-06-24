@@ -3,7 +3,7 @@ import { glossaryGrad } from "../glossaries/glossaryGrad";
 import { glossaryEad } from "../glossaries/glossaryEad";
 import { glossaryPos } from "../glossaries/glossaryPos";
 import { formatGlossary } from "../utils/formatGlossary";
-import "../components/Layout.css";
+import "../components/Layouts/Layout.css";
 
 export default function Glossario() {
   const glossaryCardGrad = (

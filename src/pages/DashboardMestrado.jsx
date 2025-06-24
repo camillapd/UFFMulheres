@@ -1,4 +1,4 @@
-import DashboardLayout from "../components/DashboardLayout";
+import DashboardLayout from "../components/Layouts/DashboardLayout";
 import ChartCard from "../components/Cards/ChartCard";
 import BarChart from "../components/Charts/BarChart";
 import InfoCardGroup from "../components/Cards/InfoCardGroup";
