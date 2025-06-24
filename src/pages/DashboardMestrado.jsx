@@ -1,7 +1,7 @@
 import DashboardLayout from "../components/DashboardLayout";
-import ChartCard from "../components/ChartCard";
+import ChartCard from "../components/Cards/ChartCard";
 import BarChart from "../components/Charts/BarChart";
-import InfoCardGroup from "../components/InfoCardGroup";
+import InfoCardGroup from "../components/Cards/InfoCardGroup";
 
 export default function DashboardMestrado() {
   const charts = (

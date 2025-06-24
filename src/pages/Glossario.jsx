@@ -1,4 +1,4 @@
-import GlossaryCard from "../components/GlossaryCard";
+import GlossaryCard from "../components/Cards/GlossaryCard";
 import { glossaryGrad } from "../glossaries/glossaryGrad";
 import { glossaryEad } from "../glossaries/glossaryEad";
 import { glossaryPos } from "../glossaries/glossaryPos";
