@@ -37,7 +37,7 @@ const Sidebar = () => {
           <button onClick={() => navigate("/about")}>About</button>
           <button onClick={() => navigate("/glossario")}>Glossário</button>
           <DropdownMenu title="Graduação" items={cursosGraduacao} />
-          <DropdownMenu title="Pós Graduação" items={cursosPos} />
+          <DropdownMenu title="Pós-Graduação" items={cursosPos} />
         </div>
         <SidebarFooter />
       </div>

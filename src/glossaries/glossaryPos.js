@@ -7,7 +7,7 @@ export const glossaryPos = [
   {
     term: "Aluno Avulso",
     meaning:
-      "Aluno já graduado em qualquer universidade ou cursando uma graduação da UFF e que cursa disciplinas avulsas na pós graduação.",
+      "Aluno já graduado em qualquer universidade ou cursando uma graduação da UFF e que cursa disciplinas avulsas na pós-graduação.",
   },
   {
     term: "Aluno Regular",
@@ -16,7 +16,7 @@ export const glossaryPos = [
   },
   {
     term: "Aluno Sanduíche",
-    meaning: "Aluno de intercâmbio cursando pós graduação sanduíche.",
+    meaning: "Aluno de intercâmbio cursando pós-graduação sanduíche.",
   },
   {
     term: "Prorrogação",
@@ -57,7 +57,7 @@ export const glossaryPos = [
   {
     term: "Aluno Desligado por Prazo",
     meaning:
-      "Aluno que deixou de cumprir qualquer atividade acadêmica nos prazos estipulados pelo Regimento da Pós Graduação em Computação do Instituto de Computação.",
+      "Aluno que deixou de cumprir qualquer atividade acadêmica nos prazos estipulados pelo Regimento da pós-graduação em Computação do Instituto de Computação.",
   },
   {
     term: "Aluno que foi de matrícula Especial/Avulsa (E/A) para Regular",
@@ -70,7 +70,7 @@ export const glossaryPos = [
   },
   {
     term: "Aluno Desistente",
-    meaning: "Aluno desistiu do curso de pós graduação.",
+    meaning: "Aluno desistiu do curso de pós-graduação.",
   },
   {
     term: "Aluno Trancado",

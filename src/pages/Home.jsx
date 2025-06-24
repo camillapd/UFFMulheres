@@ -296,7 +296,7 @@ export default function Home() {
       <InfoCardGroup
         csvPath="/assets/data/posgrad/alunos_ativos_geral.csv"
         selectedMajor="all"
-        cardTitle="Total de alunos ativos da Pós Graduação"
+        cardTitle="Total de alunos ativos da Pós-Graduação"
       />
     </>
   );
