@@ -9,13 +9,15 @@ export default function Home() {
   const charts = (
     <>
       <ChartCard
-        title="Total de alunas ativas da Graduação por curso"
+        title="Total de alunas ativas da graduação por curso"
         ChartComponent={PieChart}
         chartProps={{
           csvFileName: "graduacao/alunos_ativos_geral.csv",
           xColumn: "Curso",
           valueColumns: ["Feminino"],
           startAngle: -50,
+          ariaLabel:
+            "Gráfico de pizza do total de alunas ativas da graduação por curso. Dados também disponíveis na tabela textual acima.",
         }}
       />
 
@@ -148,7 +150,7 @@ export default function Home() {
       />
 
       <ChartCard
-        title="Total de alunas ativas da Pós Graduação por curso"
+        title="Total de alunas ativas da pós-graduação por curso"
         ChartComponent={PieChart}
         chartProps={{
           csvFileName: "posgrad/alunos_ativos_geral.csv",
@@ -158,11 +160,13 @@ export default function Home() {
           translateY: 180,
           marginBottom: 30,
           startAngle: -90,
+          ariaLabel:
+            "Gráfico de pizza do total de alunas ativas da pós-graduação por curso. Dados também disponíveis na tabela textual acima.",
         }}
       />
 
       <ChartCard
-        title="Histórico de alunas inscritas na pós graduação por curso"
+        title="Histórico de alunas inscritas na pós-graduação por curso"
         ChartComponent={LineChart}
         chartProps={{
           majors: [
@@ -186,7 +190,7 @@ export default function Home() {
       />
 
       <ChartCard
-        title="Histórico de alunas formadas na pós graduação por curso"
+        title="Histórico de alunas formadas na pós-graduação por curso"
         ChartComponent={LineChart}
         chartProps={{
           majors: [
@@ -210,7 +214,7 @@ export default function Home() {
       />
 
       <ChartCard
-        title="Histórico de alunas desistentes na pós graduação por curso"
+        title="Histórico de alunas desistentes na pós-graduação por curso"
         ChartComponent={LineChart}
         chartProps={{
           majors: [
@@ -226,12 +230,12 @@ export default function Home() {
             },
           ],
           ariaLabel:
-            "Gráfico de linha do histórico de alunas desistentes na pós graduação por curso",
+            "Gráfico de linha do histórico de alunas desistentes na pós-graduação por curso",
         }}
       />
 
       <ChartCard
-        title="Histórico de alunas desligadas por rendimento na pós graduação por curso"
+        title="Histórico de alunas desligadas por rendimento na pós-graduação por curso"
         ChartComponent={LineChart}
         chartProps={{
           majors: [
@@ -248,12 +252,12 @@ export default function Home() {
           ],
           marginBottom: 75,
           ariaLabel:
-            "Gráfico de linha do histórico de alunas desligadas por rendimento na pós graduação por curso",
+            "Gráfico de linha do histórico de alunas desligadas por rendimento na pós-graduação por curso",
         }}
       />
 
       <ChartCard
-        title="Alunos da pós que declararam sua formação em Graduação"
+        title="Alunos da pós que declararam sua formação em graduação"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "posgrad/formacao_em_graduacao.csv",
@@ -262,11 +266,11 @@ export default function Home() {
           layout: "horizontal",
           preset: "defaultHorizontal",
           ariaLabel:
-            "Gráfico de barras dos alunos da pós que declararam sua formação em Graduação",
+            "Gráfico de barras dos alunos da pós que declararam sua formação em graduação",
         }}
       />
       <ChartCard
-        title="Alunos pós que declararam sua formação em Mestrado"
+        title="Alunos pós que declararam sua formação em mestrado"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "posgrad/formacao_em_mestrado.csv",
@@ -275,7 +279,7 @@ export default function Home() {
           layout: "horizontal",
           preset: "defaultHorizontal",
           ariaLabel:
-            "Gráfico de barras dos alunos da pós que declararam sua formação em Mestrado",
+            "Gráfico de barras dos alunos da pós que declararam sua formação em mestrado",
         }}
       />
     </>
