@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
 import { ResponsiveBar } from "@nivo/bar";
 import useIsMobile from "../../hooks/useIsMobile";
+import barChartPresets from "../../utils/bartChartPresets";
+import {
+  filterLongFormat,
+  filterWideFormat,
+} from "../../utils/barChartFilters";
 
 const BarChart = ({
   csvFileName,
@@ -9,7 +14,7 @@ const BarChart = ({
   valueColumns,
   groupMode,
   layout = "vertical",
-  legendBtText,
+  legendBottomText,
   legendLeftText,
   tickTextAnchor = "end",
   ariaLabel,
@@ -23,22 +28,75 @@ const BarChart = ({
   const [filters, setFilters] = useState({ sexo: "Todos" });
   const [isLongFormat, setIsLongFormat] = useState(false);
 
-  const getIndexValue = (item) => {
-    const hasUniversity = "Instituição" in item;
-    const hasMajor = "Curso" in item;
+  const getIndexValue = React.useCallback(
+    (item) => {
+      const hasUniversity = "Instituição" in item;
+      const hasMajor = "Curso" in item;
 
-    if (hasUniversity && hasMajor) {
-      return `${item.Instituição} - ${item.Curso}`;
-    }
-    if (xMode === "anoSemestre") {
-      if (item.Ano !== undefined && item.Semestre !== undefined) {
-        return `${item.Ano}.${item.Semestre}`;
+      if (hasUniversity && hasMajor) {
+        return `${item.Instituição} - ${item.Curso}`;
       }
-      return item.Ano ?? item[xColumn];
-    } else if (xMode === "ano") {
-      return item.Ano ?? item[xColumn];
+
+      if (xMode === "anoSemestre") {
+        if (item.Ano !== undefined && item.Semestre !== undefined) {
+          return `${item.Ano}.${item.Semestre}`;
+        }
+        return item.Ano ?? item[xColumn];
+      } else if (xMode === "ano") {
+        return item.Ano ?? item[xColumn];
+      } else {
+        return item[xColumn];
+      }
+    },
+    [xMode, xColumn]
+  );
+
+  const parseCsvData = (csvResultData, csvFields) => {
+    const isLong = csvFields.includes("Sexo");
+
+    if (isLong) {
+      const grouped = {};
+      csvResultData.forEach((item) => {
+        const indexValue = getIndexValue(item);
+
+        if (!grouped[indexValue]) grouped[indexValue] = { index: indexValue };
+
+        if (item.Sexo === "M") grouped[indexValue].Masculino = item.Total;
+        if (item.Sexo === "F") grouped[indexValue].Feminino = item.Total;
+      });
+
+      const parsedRawData = csvResultData.map((item) => ({
+        ...item,
+        index: getIndexValue(item),
+      }));
+
+      return {
+        isLongFormat: true,
+        rawData: parsedRawData,
+        data: Object.values(grouped),
+      };
     } else {
-      return item[xColumn];
+      const parsedRawData = csvResultData.map((item) => ({
+        ...item,
+        index: getIndexValue(item),
+      }));
+
+      const formattedData = parsedRawData.map((item) => {
+        const formattedItem = { index: item.index };
+        valueColumns.forEach((col) => {
+          formattedItem[col] = item[col];
+        });
+        if (item.Total !== undefined) {
+          formattedItem.Total = item.Total;
+        }
+        return formattedItem;
+      });
+
+      return {
+        isLongFormat: false,
+        rawData: parsedRawData,
+        data: formattedData,
+      };
     }
   };
 
@@ -48,42 +106,14 @@ const BarChart = ({
       download: true,
       header: true,
       dynamicTyping: true,
-
       complete: (result) => {
-        const processedRawData = result.data.map((item) => ({
-          ...item,
-          index: getIndexValue(item),
-        }));
-        setRawData(processedRawData);
-
-        const isLong = result.meta.fields.includes("Sexo");
-        setIsLongFormat(isLong);
-
-        if (isLong) {
-          const grouped = {};
-          result.data.forEach((item) => {
-            const indexValue = getIndexValue(item);
-            if (!grouped[indexValue])
-              grouped[indexValue] = { index: indexValue };
-
-            if (item.Sexo === "M") grouped[indexValue].Masculino = item.Total;
-            if (item.Sexo === "F") grouped[indexValue].Feminino = item.Total;
-          });
-          setData(Object.values(grouped));
-        } else {
-          const formattedData = result.data.map((item) => {
-            const indexValue = getIndexValue(item);
-            const formattedItem = { index: indexValue };
-            valueColumns.forEach((col) => {
-              formattedItem[col] = item[col];
-            });
-            if (item.Total !== undefined) {
-              formattedItem.Total = item.Total;
-            }
-            return formattedItem;
-          });
-          setData(formattedData);
-        }
+        const { isLongFormat, rawData, data } = parseCsvData(
+          result.data,
+          result.meta.fields
+        );
+        setIsLongFormat(isLongFormat);
+        setRawData(rawData);
+        setData(data);
       },
     });
   }, [csvFileName, xColumn, valueColumns, xMode]);
@@ -91,41 +121,11 @@ const BarChart = ({
   useEffect(() => {
     if (!rawData || rawData.length === 0) return;
 
-    let filtered = [...rawData];
+    const filteredData = isLongFormat
+      ? filterLongFormat(rawData, filters.sexo)
+      : filterWideFormat(rawData, filters.sexo);
 
-    if (isLongFormat) {
-      if (filters.sexo !== "Todos") {
-        filtered = filtered.filter((item) =>
-          filters.sexo === "Masculino" ? item.Sexo === "M" : item.Sexo === "F"
-        );
-      }
-
-      const grouped = {};
-      filtered.forEach((item) => {
-        const indexValue = item.index;
-
-        if (!grouped[indexValue]) grouped[indexValue] = { index: indexValue };
-        if (item.Sexo === "M") grouped[indexValue].Masculino = item.Total;
-        if (item.Sexo === "F") grouped[indexValue].Feminino = item.Total;
-      });
-      setData(Object.values(grouped));
-    } else {
-      let wideFiltered = [...rawData];
-      if (filters.sexo !== "Todos") {
-        if (filters.sexo === "Masculino") {
-          wideFiltered = wideFiltered.map((item) => ({
-            ...item,
-            Feminino: 0,
-          }));
-        } else if (filters.sexo === "Feminino") {
-          wideFiltered = wideFiltered.map((item) => ({
-            ...item,
-            Masculino: 0,
-          }));
-        }
-      }
-      setData(wideFiltered);
-    }
+    setData(filteredData);
   }, [filters, rawData, isLongFormat]);
 
   const keysToShow = React.useMemo(() => {
@@ -143,73 +143,21 @@ const BarChart = ({
   }, [filters.sexo, valueColumns, isLongFormat]);
 
   const isMobile = useIsMobile();
-
-  const presets = {
-    defaultFilter: {
-      marginBottom: 85,
-      marginBottomMobile: desligadosPos ? 150 : 75,
-      marginLeft: 48,
-      marginLeftMobile: 50,
-      legendOffsetLeft: -40,
-      legendOffsetLeftMobile: -42,
-      legendOffsetBottom: 40,
-      legendOffsetBottomMobile: desligadosPos ? 100 : 35,
-      tickPaddingBottom: 5,
-      tickRotationBottom: 0,
-      tickRotationBottomMobile: desligadosPos ? -90 : 0,
-    },
-    defaultHorizontal: {
-      marginBottom: 85,
-      marginBottomMobile: 250,
-      marginLeft: 220,
-      marginLeftMobile: 48,
-      legendOffsetLeft: -210,
-      legendOffsetLeftMobile: -42,
-      legendOffsetBottom: 40,
-      legendOffsetBottomMobile: 200,
-      tickPaddingBottom: 5,
-      tickRotationBottom: 0,
-      tickRotationBottomMobile: -90,
-    },
-    rotatedAxis: {
-      marginBottom: 90,
-      marginBottomMobile: 70,
-      marginLeft: 48,
-      marginLeftMobile: 65,
-      legendOffsetLeft: -40,
-      legendOffsetLeftMobile: -55,
-      legendOffsetBottom: 50,
-      legendOffsetBottomMobile: 50,
-      tickPaddingBottom: 5,
-      tickRotationBottom: -90,
-    },
-  };
-
+  const presets = barChartPresets({ desligadosPos });
   const selectedPreset = presets[preset] ?? presets.defaultFilter;
 
-  const currentMarginBottom = isMobile
-    ? selectedPreset.marginBottomMobile ?? selectedPreset.marginBottom
-    : selectedPreset.marginBottom;
+  const resolvePresetValue = (presetKey) => {
+    return isMobile
+      ? selectedPreset[`${presetKey}Mobile`] ?? selectedPreset[presetKey]
+      : selectedPreset[presetKey];
+  };
 
-  const currentMarginLeft = isMobile
-    ? selectedPreset.marginLeftMobile ?? selectedPreset.marginLeft
-    : selectedPreset.marginLeft;
-
-  const currentLegendOffsetLeft = isMobile
-    ? selectedPreset.legendOffsetLeftMobile ?? selectedPreset.legendOffsetLeft
-    : selectedPreset.legendOffsetLeft;
-
-  const currentLegendOffsetBottom = isMobile
-    ? selectedPreset.legendOffsetBottomMobile ??
-      selectedPreset.legendOffsetBottom
-    : selectedPreset.legendOffsetBottom;
-
-  const currentTickRotationBottom = isMobile
-    ? selectedPreset.tickRotationBottomMobile ??
-      selectedPreset.tickRotationBottom
-    : selectedPreset.tickRotationBottom;
-
-  const currentTickPaddingBottom = selectedPreset.tickPaddingBottom;
+  const currentMarginBottom = resolvePresetValue("marginBottom");
+  const currentMarginLeft = resolvePresetValue("marginLeft");
+  const currentLegendOffsetLeft = resolvePresetValue("legendOffsetLeft");
+  const currentLegendOffsetBottom = resolvePresetValue("legendOffsetBottom");
+  const currentTickRotationBottom = resolvePresetValue("tickRotationBottom");
+  const currentTickPaddingBottom = resolvePresetValue("tickPaddingBottom");
 
   const finalLayout = isMobile
     ? forceHorizontalOnMobile
@@ -227,10 +175,10 @@ const BarChart = ({
 
     const categoryAxisLegend = isHorizontal
       ? legendLeftText ?? categoryLegend
-      : legendBtText ?? categoryLegend;
+      : legendBottomText ?? categoryLegend;
 
     const valueAxisLegend = isHorizontal
-      ? legendBtText ?? valueLegend
+      ? legendBottomText ?? valueLegend
       : legendLeftText ?? valueLegend;
 
     const axisBottom = {
@@ -260,6 +208,36 @@ const BarChart = ({
   };
 
   const { axisBottom, axisLeft } = getAxisProps();
+
+  const CustomTooltip = ({ indexValue, data }) => {
+    const feminino = data["Feminino"] ?? 0;
+    const masculino = data["Masculino"] ?? 0;
+    const total = data["Total"];
+
+    return (
+      <div
+        style={{
+          padding: 12,
+          background: "white",
+          color: "#000",
+          boxShadow: "0 3px 9px rgba(0, 0, 0, 0.5)",
+          borderRadius: "20px",
+        }}
+      >
+        <strong>{indexValue}</strong>
+        <br />
+        Feminino: {feminino}
+        <br />
+        Masculino: {masculino}
+        {total !== undefined && (
+          <>
+            <br />
+            <strong>Total: {total}</strong>
+          </>
+        )}
+      </div>
+    );
+  };
 
   return (
     <>
@@ -351,33 +329,9 @@ const BarChart = ({
             id: "dots",
           },
         ]}
-        tooltip={({ indexValue, data }) => {
-          const feminino = data["Feminino"] ?? 0;
-          const masculino = data["Masculino"] ?? 0;
-          const total = data["Total"];
-          return (
-            <div
-              style={{
-                padding: 12,
-                background: "white",
-                color: "#000",
-                boxShadow: "0 3px 9px rgba(0, 0, 0, 0.5)",
-              }}
-            >
-              <strong>{indexValue}</strong>
-              <br />
-              Feminino: {feminino}
-              <br />
-              Masculino: {masculino}
-              {total !== undefined && (
-                <>
-                  <br />
-                  <strong>Total: {total}</strong>
-                </>
-              )}
-            </div>
-          );
-        }}
+        tooltip={({ indexValue, data }) => (
+          <CustomTooltip indexValue={indexValue} data={data} />
+        )}
         role="application"
         ariaLabel={ariaLabel}
         isFocusable={true}
