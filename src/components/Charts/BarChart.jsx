@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Papa from "papaparse";
 import { ResponsiveBar } from "@nivo/bar";
 import useIsMobile from "../../hooks/useIsMobile";
@@ -239,12 +239,27 @@ const BarChart = ({
     );
   };
 
+  const dynamicAriaLabel = useMemo(() => {
+    const sexoFilter = filters.sexo;
+
+    let label = ariaLabel;
+
+    if (sexoFilter && sexoFilter !== "Todos") {
+      label += `, filtrando alunos do sexo ${sexoFilter}`;
+    } else {
+      label += `, mostrando todos os alunos`;
+    }
+
+    return label;
+  }, [csvFileName, filters.sexo]);
+
   return (
     <>
       <div className="filter-container">
         <label>
-          Filtrar alunos:{" "}
+          <label htmlFor="sexoFilter">Filtrar alunos: </label>
           <select
+            id="sexoFilter"
             value={filters.sexo}
             onChange={(e) =>
               setFilters((f) => ({ ...f, sexo: e.target.value }))
@@ -255,6 +270,24 @@ const BarChart = ({
             <option value="Masculino">Masculino</option>
           </select>
         </label>
+      </div>
+
+      <div
+        aria-live="polite"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          height: "1px",
+          width: "1px",
+          overflow: "hidden",
+        }}
+      >
+        {`Gráfico de alunos com filtro de sexo: ${filters.sexo}. Contagem total por categoria:`}
+        {data.map((item) => {
+          const feminino = item.Feminino ?? 0;
+          const masculino = item.Masculino ?? 0;
+          return `${item.index}: Feminino ${feminino}, Masculino ${masculino}. `;
+        })}
       </div>
 
       <ResponsiveBar
@@ -333,7 +366,7 @@ const BarChart = ({
           <CustomTooltip indexValue={indexValue} data={data} />
         )}
         role="application"
-        ariaLabel={ariaLabel}
+        ariaLabel={dynamicAriaLabel}
         isFocusable={true}
         enableLabel={true}
         barAriaLabel={(e) =>
