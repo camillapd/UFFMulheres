@@ -1,12 +1,52 @@
-# React + Vite
+# Computing Course Data Visualization — UFF Mulheres
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project presents an interactive data visualization of undergraduate and postgraduate computing courses at UFF. It was developed as part of the undergraduate thesis project for the Computer Science undergrad program.
 
-Currently, two official plugins are available:
+## 🎯 Goal
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To make institutional academic data about women more accessible and visually intuitive, enabling the public, researchers, and institutional managers to explore trends and patterns over time.
 
-## Expanding the ESLint configuration
+The site provides visualizations for:
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Undergraduate**: Computer Science, Information Systems, Computer Science (Rio das Ostras) and Technology in Computing Systems (remote learning).
+- **Postgraduate**:Master's and Doctorate in Computing.
+
+## 📊 Features
+
+- Dynamic data visualizations with gender-based filters
+- Fully responsive interface (desktop/mobile/tablet).
+- Accessibility features: font scaling, keyboard navigation, and baseline screen reader compatibility
+- Designed for long-term maintainability and public accessibility
+
+## ⚙️ Technology Stack
+
+- **Frontend**: React
+- **Data Visualization**: Nivo
+- **Data Parsing**: PapaParse (CSV)
+- **Accessibility State Management**: Zustand
+- **Deployment**: GitHub Pages (temporary), institutional site (final)
+
+## 📁 Data Source
+
+The data was collected from official records of UFF. The source can be found at:
+
+https://analytics.uff.br/superset/dashboard/prograd_ensino_graduacao/
+https://github.com/gems-uff/sapos/wiki
+
+## 🌐 Access the Site
+
+The visualization is currently hosted via GitHub Pages:
+
+//todo
+
+It will later be integrated into the official institutional website.
+
+## 📝 License
+
+This project is licensed under the **MIT License**, which allows reuse, modification, and distribution with attribution. It's a permissive and commonly used license for academic and open-source work.
+
+See [`LICENSE`](./LICENSE) for details.
+
+## 👤 Author
+
+Developed by **Camilla** as part of the final project for the **Computer Science** degree at **Universidade Federal Fluminense**.
