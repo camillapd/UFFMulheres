@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import Papa from "papaparse";
 import { ResponsiveBar } from "@nivo/bar";
 import useIsMobile from "../../hooks/useIsMobile";
+import { useAccessibilityStore } from "../../store/accessibilityStore";
 import barChartPresets from "../../utils/bartChartPresets";
 import {
   filterLongFormat,
@@ -21,7 +22,6 @@ const BarChart = ({
   xMode = "ano",
   preset = "defaultFilter",
   forceHorizontalOnMobile = false,
-  desligadosPos = false,
 }) => {
   const [data, setData] = useState([]);
   const [rawData, setRawData] = useState([]);
@@ -143,7 +143,7 @@ const BarChart = ({
   }, [filters.sexo, valueColumns, isLongFormat]);
 
   const isMobile = useIsMobile();
-  const presets = barChartPresets({ desligadosPos });
+  const presets = barChartPresets();
   const selectedPreset = presets[preset] ?? presets.defaultFilter;
 
   const resolvePresetValue = (presetKey) => {
@@ -253,6 +253,33 @@ const BarChart = ({
     return label;
   }, [csvFileName, filters.sexo]);
 
+  const fontSize = useAccessibilityStore((state) => state.fontSize);
+  const chartFontSize = (fontSize / 100) * 12;
+
+  const theme = {
+    axis: {
+      ticks: {
+        text: {
+          textAnchor: tickTextAnchor,
+          dx:
+            tickTextAnchor === "start" ? -5 : tickTextAnchor === "end" ? 5 : 0,
+
+          fontSize: chartFontSize,
+        },
+      },
+    },
+    legends: {
+      text: {
+        fontSize: chartFontSize,
+      },
+    },
+    labels: {
+      text: {
+        fontSize: chartFontSize,
+      },
+    },
+  };
+
   return (
     <>
       <div className="filter-container">
@@ -296,7 +323,7 @@ const BarChart = ({
         indexBy="index"
         margin={{
           top: 30,
-          right: 0,
+          right: 10,
           bottom: currentMarginBottom,
           left: currentMarginLeft,
         }}
@@ -372,21 +399,7 @@ const BarChart = ({
         barAriaLabel={(e) =>
           e.indexValue + " - " + e.id + e.formattedValue + ": alunos"
         }
-        theme={{
-          axis: {
-            ticks: {
-              text: {
-                textAnchor: tickTextAnchor,
-                dx:
-                  tickTextAnchor === "start"
-                    ? -5
-                    : tickTextAnchor === "end"
-                    ? 5
-                    : 0,
-              },
-            },
-          },
-        }}
+        theme={theme}
       />
     </>
   );
