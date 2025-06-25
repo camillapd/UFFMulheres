@@ -13,17 +13,20 @@
   --dark-gray: 85, 102, 91;
   --light-green: 69, 160, 73;
   --dark-blue: 49, 60, 255;
-  --light-yellow: 255, 247, 100;
   --green: #3db166;
+  --green-cyan: #66c2a5;
+  --blue-logo: #1064ac;
+  --olympic-blue: #4a90e2;
+  --dark-charcoal: #333;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #006699;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #3e86aa;
 }
 
 body {

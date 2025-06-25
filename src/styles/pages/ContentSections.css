@@ -28,7 +28,7 @@
 }
 
 .content-section .about-section {
-  border-left: 6px solid #4a90e2;
+  border-left: 6px solid var(--olympic-blue);
   background-color: white;
   padding: 1rem 1.5rem;
   margin-bottom: 1.5rem;
@@ -37,7 +37,6 @@
 }
 
 .content-section a {
-  color: #006699;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
