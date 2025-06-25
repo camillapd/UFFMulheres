@@ -9,12 +9,13 @@ const LineChart = ({
   ariaLabel,
   tickRotation,
   legendOffsetBottom = 40,
-  tickPaddingBt = 5,
   marginBottom = 50,
   xMode = "ano",
 }) => {
   const [data, setData] = useState([]);
 
+  // usado somente no gráfico alunas ativas por ano de inscrição e curso
+  // porque nos csvs (*curso*_ano_ingresso.csv) tem semestre separado do ano
   const getIndexValue = (item) => {
     if (xMode === "anoSemestre") {
       if (item.Ano !== undefined && item.Semestre !== undefined) {
@@ -26,6 +27,8 @@ const LineChart = ({
     return item.Ano;
   };
 
+  // só está sendo usado nos gráficos do home então,
+  // está ajustado somente para gráficos com feminino e ano
   const parseCsvData = (major) => {
     const csvPath = `${major.folder}/${major.name}.csv`;
 
@@ -60,6 +63,7 @@ const LineChart = ({
 
   const isMobile = useIsMobile();
 
+  // importante para deixar título da tooltip não abreviado
   const getSeriesTitle = (id) => {
     const map = {
       CC: "Ciência da Computação",
@@ -70,6 +74,7 @@ const LineChart = ({
     return map[id] || id;
   };
 
+  // parte de acessibilidade início
   const fontSize = useAccessibilityStore((state) => state.fontSize);
   const chartFontSize = (fontSize / 100) * 12;
 
@@ -111,9 +116,16 @@ const LineChart = ({
           )
         )}
       </div>
+      {/* parte de acessibilidade fim */}
+
       <ResponsiveLine
         data={data}
-        margin={{ top: 30, right: 25, bottom: isMobile? 82 : marginBottom, left: 45 }}
+        margin={{
+          top: 30,
+          right: 25,
+          bottom: isMobile ? 82 : marginBottom,
+          left: 45,
+        }}
         xScale={{ type: "point" }}
         yScale={{
           type: "linear",
@@ -129,8 +141,8 @@ const LineChart = ({
           tickSize: 5,
           tickRotation: isMobile ? -90 : tickRotation,
           legend: "Ano",
-          legendOffset: isMobile? 55 : legendOffsetBottom,
-          tickPadding: tickPaddingBt,
+          legendOffset: isMobile ? 55 : legendOffsetBottom,
+          tickPadding: 5,
           legendPosition: "middle",
         }}
         axisLeft={{
@@ -189,6 +201,7 @@ const LineChart = ({
             }}
           >
             <strong>{getSeriesTitle(point.seriesId)}</strong>
+            {/* importante para deixar título da tooltip não abreviado */}
             <br />
             Ano: {point.data.xFormatted}
             <br />

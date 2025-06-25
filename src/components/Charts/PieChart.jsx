@@ -47,6 +47,7 @@ const PieChart = ({
 
   const isMobile = useIsMobile();
 
+  // parte de acessibilidade início
   const patternFill = useMemo(() => {
     const patternIds = ["dots", "lines", "squares"];
     return data.slice(0, -1).map((item, index) => ({
@@ -79,8 +80,8 @@ const PieChart = ({
   };
 
   return (
-    <>
-      <div
+    <> 
+      <div                        
         aria-hidden="true"
         style={{
           position: "absolute",
@@ -92,6 +93,7 @@ const PieChart = ({
       >
         {data.map((item) => `${item.id}: ${item.value} alunos. `)}
       </div>
+      {/* parte de acessibilidade fim */}
 
       <ResponsivePie
         data={data}

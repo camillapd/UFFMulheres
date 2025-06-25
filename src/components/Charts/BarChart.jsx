@@ -30,6 +30,7 @@ const BarChart = ({
 
   const getIndexValue = React.useCallback(
     (item) => {
+      // usado somente nos gráficos da pós formação em graduação e formação em mestrado
       const hasUniversity = "Instituição" in item;
       const hasMajor = "Curso" in item;
 
@@ -37,6 +38,8 @@ const BarChart = ({
         return `${item.Instituição} - ${item.Curso}`;
       }
 
+      // usado somente no gráfico alunos ativos por ano de inscrição
+      // porque nos csvs (*curso*_ano_ingresso.csv) tem semestre separado do ano
       if (xMode === "anoSemestre") {
         if (item.Ano !== undefined && item.Semestre !== undefined) {
           return `${item.Ano}.${item.Semestre}`;
@@ -54,6 +57,8 @@ const BarChart = ({
   const parseCsvData = (csvResultData, csvFields) => {
     const isLong = csvFields.includes("Sexo");
 
+    // o islong é somente para o gráfico alunos ativos através dos anos da graduação
+    // porque esse é o único csv em formato long nos dados
     if (isLong) {
       const grouped = {};
       csvResultData.forEach((item) => {
@@ -118,6 +123,7 @@ const BarChart = ({
     });
   }, [csvFileName, xColumn, valueColumns, xMode]);
 
+  // código do filtro do gráfico
   useEffect(() => {
     if (!rawData || rawData.length === 0) return;
 
@@ -142,7 +148,20 @@ const BarChart = ({
     return valueColumns;
   }, [filters.sexo, valueColumns, isLongFormat]);
 
+  // código da versão mobile
   const isMobile = useIsMobile();
+
+  const finalLayout = isMobile
+    ? forceHorizontalOnMobile
+      ? "horizontal"
+      : layout === "horizontal"
+      ? "vertical"
+      : layout
+    : layout;
+
+  const isHorizontal = finalLayout === "horizontal";
+
+  // código dos presets do gráfico
   const presets = barChartPresets();
   const selectedPreset = presets[preset] ?? presets.defaultFilter;
 
@@ -159,16 +178,7 @@ const BarChart = ({
   const currentTickRotationBottom = resolvePresetValue("tickRotationBottom");
   const currentTickPaddingBottom = resolvePresetValue("tickPaddingBottom");
 
-  const finalLayout = isMobile
-    ? forceHorizontalOnMobile
-      ? "horizontal"
-      : layout === "horizontal"
-      ? "vertical"
-      : layout
-    : layout;
-
-  const isHorizontal = finalLayout === "horizontal";
-
+  // importante para definir as axis dependendo do tipo de layout vertical e horizontal
   const getAxisProps = () => {
     const categoryLegend = xColumn;
     const valueLegend = "Quantidade de alunos";
@@ -209,6 +219,7 @@ const BarChart = ({
 
   const { axisBottom, axisLeft } = getAxisProps();
 
+  // tooltip personalizada para resolver problema de não conseguir ver todos os dados nas barras pequenas
   const CustomTooltip = ({ indexValue, data }) => {
     const feminino = data["Feminino"] ?? 0;
     const masculino = data["Masculino"] ?? 0;
@@ -239,6 +250,7 @@ const BarChart = ({
     );
   };
 
+  // parte de acessibilidade início
   const dynamicAriaLabel = useMemo(() => {
     const sexoFilter = filters.sexo;
 
@@ -282,23 +294,6 @@ const BarChart = ({
 
   return (
     <>
-      <div className="filter-container">
-        <label>
-          <label htmlFor="sexoFilter">Filtrar alunos: </label>
-          <select
-            id="sexoFilter"
-            value={filters.sexo}
-            onChange={(e) =>
-              setFilters((f) => ({ ...f, sexo: e.target.value }))
-            }
-          >
-            <option value="Todos">Todos</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Masculino">Masculino</option>
-          </select>
-        </label>
-      </div>
-
       <div
         aria-live="polite"
         style={{
@@ -315,6 +310,24 @@ const BarChart = ({
           const masculino = item.Masculino ?? 0;
           return `${item.index}: Feminino ${feminino}, Masculino ${masculino}. `;
         })}
+      </div>
+      {/* parte de acessibilidade fim */}
+
+      <div className="filter-container">
+        <label>
+          <label htmlFor="sexoFilter">Filtrar alunos: </label>
+          <select
+            id="sexoFilter"
+            value={filters.sexo}
+            onChange={(e) =>
+              setFilters((f) => ({ ...f, sexo: e.target.value }))
+            }
+          >
+            <option value="Todos">Todos</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Masculino">Masculino</option>
+          </select>
+        </label>
       </div>
 
       <ResponsiveBar
