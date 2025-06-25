@@ -1,4 +1,4 @@
-# Computing Course Data Visualization — UFF Mulheres
+# Computing Course Data Visualization — UFF Mulheres 👩‍💻
 
 This project presents an interactive data visualization of undergraduate and postgraduate computing courses at UFF. It was developed as part of the undergraduate thesis project for the Computer Science undergrad program.
 
@@ -30,8 +30,8 @@ The site provides visualizations for:
 
 The data was collected from official records of UFF. The source can be found at:
 
-https://analytics.uff.br/superset/dashboard/prograd_ensino_graduacao/
-https://github.com/gems-uff/sapos/wiki
+- [Painel de Indicadores de Gestão]([https://example.com](https://analytics.uff.br/superset/dashboard/prograd_ensino_graduacao/))
+- [SAPOS-UFF](https://github.com/gems-uff/sapos/wiki)
 
 ## 🌐 Access the Site
 
