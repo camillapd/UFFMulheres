@@ -2,14 +2,16 @@ import { useEffect, useState, useMemo } from "react";
 import Papa from "papaparse";
 import { ResponsivePie } from "@nivo/pie";
 import useIsMobile from "../../hooks/useIsMobile";
+import { useAccessibilityStore } from "../../store/accessibilityStore";
 
 const PieChart = ({
   csvFileName,
   xColumn,
   valueColumns,
-  translateY = 170,
-  translateX = 100,
-  marginBottom = 40,
+  translateY = 180,
+  translateX = 70,
+  marginRight,
+  marginLeft,
   startAngle,
   ariaLabel,
 }) => {
@@ -53,6 +55,29 @@ const PieChart = ({
     }));
   }, [data]);
 
+  const fontSize = useAccessibilityStore((state) => state.fontSize);
+  const chartFontSize = (fontSize / 100) * 12;
+
+  const theme = {
+    axis: {
+      ticks: {
+        text: {
+          fontSize: chartFontSize,
+        },
+      },
+    },
+    legends: {
+      text: {
+        fontSize: chartFontSize,
+      },
+    },
+    labels: {
+      text: {
+        fontSize: chartFontSize,
+      },
+    },
+  };
+
   return (
     <>
       <div
@@ -67,13 +92,14 @@ const PieChart = ({
       >
         {data.map((item) => `${item.id}: ${item.value} alunos. `)}
       </div>
+
       <ResponsivePie
         data={data}
         margin={{
-          top: isMobile ? 0 : 30,
-          right: isMobile ? 10 : 100,
-          bottom: isMobile ? 30 : marginBottom,
-          left: isMobile ? 10 : 20,
+          top: isMobile ? 0 : 5,
+          right: isMobile ? 10 : marginRight,
+          bottom: isMobile ? 30 : 5,
+          left: isMobile ? 10 : marginLeft,
         }}
         startAngle={startAngle}
         innerRadius={0.5}
@@ -82,7 +108,7 @@ const PieChart = ({
         activeOuterRadiusOffset={8}
         borderWidth={1}
         borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
-        enableArcLinkLabels={isMobile ? false : true}
+        enableArcLinkLabels={!isMobile}
         arcLinkLabelsTextOffset={0}
         arcLinkLabelsTextColor="#333333"
         arcLinkLabelsDiagonalLength={10}
@@ -94,7 +120,7 @@ const PieChart = ({
         animate={true}
         motionConfig="gentle"
         role="img"
-        arialLabel={ariaLabel}
+        ariaLabel={ariaLabel}
         isFocusable={true}
         legends={[
           {
@@ -138,7 +164,8 @@ const PieChart = ({
           },
         ]}
         fill={patternFill}
-      />{" "}
+        theme={theme}
+      />
     </>
   );
 };

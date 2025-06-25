@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import { ResponsiveLine } from "@nivo/line";
 import useIsMobile from "../../hooks/useIsMobile";
+import { useAccessibilityStore } from "../../store/accessibilityStore";
 
 const LineChart = ({
   majors,
@@ -69,6 +70,29 @@ const LineChart = ({
     return map[id] || id;
   };
 
+  const fontSize = useAccessibilityStore((state) => state.fontSize);
+  const chartFontSize = (fontSize / 100) * 12;
+
+  const theme = {
+    axis: {
+      ticks: {
+        text: {
+          fontSize: chartFontSize,
+        },
+      },
+    },
+    legends: {
+      text: {
+        fontSize: chartFontSize,
+      },
+    },
+    labels: {
+      text: {
+        fontSize: chartFontSize,
+      },
+    },
+  };
+
   return (
     <>
       <div
@@ -87,10 +111,9 @@ const LineChart = ({
           )
         )}
       </div>
-
       <ResponsiveLine
         data={data}
-        margin={{ top: 30, right: 25, bottom: marginBottom, left: 45 }}
+        margin={{ top: 30, right: 25, bottom: isMobile? 82 : marginBottom, left: 45 }}
         xScale={{ type: "point" }}
         yScale={{
           type: "linear",
@@ -106,7 +129,7 @@ const LineChart = ({
           tickSize: 5,
           tickRotation: isMobile ? -90 : tickRotation,
           legend: "Ano",
-          legendOffset: legendOffsetBottom,
+          legendOffset: isMobile? 55 : legendOffsetBottom,
           tickPadding: tickPaddingBt,
           legendPosition: "middle",
         }}
@@ -134,7 +157,7 @@ const LineChart = ({
             justify: false,
             translateX: 10,
             translateY: -40,
-            itemsSpacing: 15,
+            itemsSpacing: 30,
             itemDirection: "left-to-right",
             itemWidth: 60,
             itemHeight: 40,
@@ -172,6 +195,7 @@ const LineChart = ({
             Alunas: {point.data.yFormatted}
           </div>
         )}
+        theme={theme}
       />
     </>
   );
