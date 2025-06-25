@@ -1,4 +1,6 @@
 .card {
+  display: flex;
+  flex-direction: column;
   background: white;
   border-radius: 0.8rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -6,7 +8,7 @@
   transition: transform 0.2s ease;
   text-align: center;
   width: 55%;
-  height: 500px;
+  min-height: 500px;
   padding: 8px 20px 20px 20px;
 }
 
@@ -21,7 +23,7 @@
 }
 
 .chart-container {
-  height: 460px;
+  height: 31rem;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
@@ -53,7 +55,7 @@
 }
 
 .filter-container select:hover {
-  border-color: #66c2a5; 
+  border-color: #66c2a5;
 }
 
 .filter-container select:focus {
@@ -64,12 +66,11 @@
 
 @media (max-width: 768px) {
   .card {
-    height: 580px;
+    height: 36rem;
     width: 100%;
-    padding: 5px;
+    padding: 0.3rem;
   }
   .chart-container {
-
-    height: 500px;
+    height: 31rem;
   }
 }
