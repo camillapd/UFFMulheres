@@ -4,10 +4,6 @@
   font-weight: 400;
   font-size: 1rem;
 
-  /* color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; */
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -76,17 +72,3 @@ button:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(var(--light-yellow), 0.4);
 }
-
-/* 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: light-gray;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: var(--light-gray);
-  }
-} */
