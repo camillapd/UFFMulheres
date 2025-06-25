@@ -1,6 +1,9 @@
 import "./App.css";
-import Sidebar from "./components/Sidebar/Sidebar";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useAccessibilityStore } from "./store/accessibilityStore";
+import AccessibilityMenu from "./components/AccessibilityMenu/AccessibilityMenu";
+import Sidebar from "./components/Sidebar/Sidebar";
 import DashboardComputacao from "./pages/DashboardComputacao";
 import DashboardInformacao from "./pages/DashboardInformacao";
 import DashboardComputacaoRO from "./pages/DashboardComputacaoRO";
@@ -12,10 +15,17 @@ import Glossario from "./pages/Glossario";
 import Home from "./pages/Home";
 
 function App() {
+  const { fontSize } = useAccessibilityStore();
+
+  useEffect(() => {
+    document.documentElement.style.fontSize = `${fontSize}%`;
+  }, [fontSize]);
+
   return (
     <BrowserRouter>
       <div className="main-container">
         <Sidebar />
+        <AccessibilityMenu />
         <main className="content">
           <Routes>
             <Route path="/" element={<Home />} />
