@@ -16,6 +16,9 @@ export default function Home() {
           xColumn: "Curso",
           valueColumns: ["Feminino"],
           startAngle: -50,
+          marginRight: 150,
+          marginLeft: 75,
+          translateX: 120,
           ariaLabel:
             "Gráfico de pizza do total de alunas ativas da graduação por curso. Dados também disponíveis na tabela textual acima.",
         }}
@@ -49,7 +52,7 @@ export default function Home() {
           ],
           tickRotation: -90,
           marginBottom: 65,
-          legendOffsetBottom: 55,
+          legendOffsetBottom: 60,
           xMode: "anoSemestre",
           ariaLabel:
             "Gráfico de linha de alunas ativas inscritas por ano e curso",
@@ -156,10 +159,9 @@ export default function Home() {
           csvFileName: "posgrad/alunos_ativos_geral.csv",
           xColumn: "Curso",
           valueColumns: ["Feminino"],
-          translateX: 80,
-          translateY: 180,
-          marginBottom: 30,
-          startAngle: -90,
+          startAngle: 0,
+          marginRight: 80,
+          marginLeft: 80,
           ariaLabel:
             "Gráfico de pizza do total de alunas ativas da pós-graduação por curso. Dados também disponíveis na tabela textual acima.",
         }}
@@ -250,7 +252,7 @@ export default function Home() {
               displayName: "Doutorado",
             },
           ],
-          marginBottom: 75,
+          marginBottom: 50,
           ariaLabel:
             "Gráfico de linha do histórico de alunas desligadas por rendimento na pós-graduação por curso",
         }}
