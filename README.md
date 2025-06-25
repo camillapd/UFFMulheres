@@ -30,7 +30,7 @@ The site provides visualizations for:
 
 The data was collected from official records of UFF. The source can be found at:
 
-- [Painel de Indicadores de Gestão]([https://example.com](https://analytics.uff.br/superset/dashboard/prograd_ensino_graduacao/))
+- [Painel de Indicadores de Gestão](https://analytics.uff.br/superset/dashboard/prograd_ensino_graduacao/)
 - [SAPOS-UFF](https://github.com/gems-uff/sapos/wiki)
 
 ## 🌐 Access the Site
