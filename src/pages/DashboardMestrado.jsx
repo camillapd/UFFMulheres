@@ -42,8 +42,8 @@ export default function DashboardMestrado() {
           xColumn: "Razão",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
-          preset: "defaultFilter",
-          desligadosPos: true,
+          layout: "horizontal",
+          preset: "defaultHorizontal",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de alunos do mestrado que foram desligados da UFF, por razão",
         }}
