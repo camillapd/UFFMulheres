@@ -37,7 +37,7 @@ The data was collected from official records of UFF. The source can be found at:
 
 The visualization is currently hosted via GitHub Pages:
 
-//todo
+(https://camillapd.github.io/UFFMulheres/)
 
 It will later be integrated into the official institutional website.
 
