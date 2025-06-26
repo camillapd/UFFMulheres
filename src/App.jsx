@@ -1,6 +1,6 @@
 import "./App.css";
 import { useEffect } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAccessibilityStore } from "./store/accessibilityStore";
 import AccessibilityMenu from "./components/AccessibilityMenu/AccessibilityMenu";
 import Sidebar from "./components/Sidebar/Sidebar";
