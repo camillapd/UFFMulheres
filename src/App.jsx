@@ -28,7 +28,8 @@ function App() {
         <AccessibilityMenu />
         <main className="content">
           <Routes>
-            <Route path="/UFFMulheres" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Navigate to="/" />} />
             <Route path="/about" element={<About />} />
             <Route path="/glossario" element={<Glossario />} />
             <Route path="/computacao" element={<DashboardComputacao />} />
