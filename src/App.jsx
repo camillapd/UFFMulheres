@@ -1,6 +1,6 @@
 import "./App.css";
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { useAccessibilityStore } from "./store/accessibilityStore";
 import AccessibilityMenu from "./components/AccessibilityMenu/AccessibilityMenu";
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -22,7 +22,7 @@ function App() {
   }, [fontSize]);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="main-container">
         <Sidebar />
         <AccessibilityMenu />
@@ -40,7 +40,7 @@ function App() {
           </Routes>
         </main>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
