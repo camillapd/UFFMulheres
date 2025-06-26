@@ -1,13 +1,10 @@
 {
-  "name": "meu-projeto",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "homepage": "https://camillapd.github.io/UFFMulheres/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@nivo/annotations": "^0.92.2",
@@ -19,7 +16,6 @@
     "@nivo/line": "^0.92.2",
     "@nivo/pie": "^0.92.2",
     "@nivo/tooltip": "^0.92.2",
-    "masonry-layout": "^4.2.2",
     "papaparse": "^5.5.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -35,6 +31,7 @@
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "gh-pages": "^6.3.0",
     "globals": "^15.15.0",
     "vite": "^6.2.0"
   }
