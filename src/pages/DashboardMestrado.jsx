@@ -118,7 +118,9 @@ export default function DashboardMestrado() {
 
   const cards = (
     <InfoCardGroup
-      csvPath="/assets/data/posgrad/alunos_ativos_geral.csv"
+      csvPath={`${
+        import.meta.env.BASE_URL
+      }assets/data/posgrad/alunos_ativos_geral.csv`}
       selectedMajor="Mestrado"
       cardTitle="Total de alunos ativos"
     />

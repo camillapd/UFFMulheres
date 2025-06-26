@@ -107,7 +107,9 @@ export default function DashboardInformacao() {
 
   const cards = (
     <InfoCardGroup
-      csvPath="/assets/data/graduacao/alunos_ativos_geral.csv"
+      csvPath={`${
+        import.meta.env.BASE_URL
+      }assets/data/graduacao/alunos_ativos_geral.csv`}
       selectedMajor="Sistemas de Informação"
       cardTitle="Total de alunos ativos"
     />

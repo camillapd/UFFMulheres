@@ -107,7 +107,9 @@ export default function DashboardComputacaoRO() {
 
   const cards = (
     <InfoCardGroup
-      csvPath="/assets/data/graduacao/alunos_ativos_geral.csv"
+      csvPath={`${
+        import.meta.env.BASE_URL
+      }assets/data/graduacao/alunos_ativos_geral.csv`}
       selectedMajor="Ciência da Computação (RO)"
       cardTitle="Total de alunos ativos"
     />

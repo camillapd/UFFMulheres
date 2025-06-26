@@ -33,7 +33,7 @@ const PieChart = ({
   };
 
   useEffect(() => {
-    const csvPath = `/assets/data/${csvFileName}`;
+    const csvPath = `${import.meta.env.BASE_URL}assets/data/${csvFileName}`;
     Papa.parse(csvPath, {
       download: true,
       header: true,

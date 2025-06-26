@@ -30,7 +30,7 @@ const LineChart = ({
   // só está sendo usado nos gráficos do home então,
   // está ajustado somente para gráficos com feminino e ano
   const parseCsvData = (major) => {
-    const csvPath = `${major.folder}/${major.name}.csv`;
+    const csvPath = `${import.meta.env.BASE_URL}${major.folder}/${major.name}.csv`;
 
     return new Promise((resolve) => {
       Papa.parse(csvPath, {
