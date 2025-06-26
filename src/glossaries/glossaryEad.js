@@ -5,23 +5,18 @@ export const glossaryEad = [
   },
   {
     term: "Aluno com Trancamento Automático",
-    meaning: "Aluno não se inscreveu em nenhuma disciplina no período e não solicitou trancamento.",
+    meaning:
+      "Aluno não se inscreveu em nenhuma disciplina no período e não solicitou trancamento.",
   },
   {
     term: "Aluno com Trancamento Especial",
-    meaning: "Aluno solicita via processo por questões previstas no regulamento de cursos. este trancamento não é considerado para o limite de trancamentos a que o aluno tem direito.",
+    meaning:
+      "Aluno solicita via processo por questões previstas no regulamento de cursos, este trancamento não é considerado para o limite de trancamentos a que o aluno tem direito.",
   },
   {
     term: "Aluno Aguardando Atualização",
-    meaning: "Aluno do CEDERJ que finalizou o curriculo e está aguardando os procedimentos da UFF para formatura",
-  },
-  {
-    term: "Ensino a Distância",
-    meaning: ".",
-  },
-  {
-    term: "Ensino a Distância: Transferência ex officio",
-    meaning: ".",
+    meaning:
+      "Aluno do CEDERJ que finalizou o curriculo e está aguardando os procedimentos da UFF para formatura",
   },
   {
     term: "Ensino a Distância: Vestibular",
@@ -29,7 +24,8 @@ export const glossaryEad = [
   },
   {
     term: "Ensino a Distância: Reingresso",
-    meaning: ".",
+    meaning:
+      "Aluno inscrito por Reingresso na UFF, é feito quando o aluno está concluindo outro curso de graduação.",
   },
   {
     term: "Ensino a Distância: Enem",
