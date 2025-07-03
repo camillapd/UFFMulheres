@@ -39,7 +39,9 @@ The visualization is currently hosted via GitHub Pages:
 
 (https://camillapd.github.io/UFFMulheres/)
 
-It will later be integrated into the official institutional website.
+And on the official institutional site:
+
+(http://www2.ic.uff.br/~uff_mulheres/#/)
 
 ## 📝 License
 
