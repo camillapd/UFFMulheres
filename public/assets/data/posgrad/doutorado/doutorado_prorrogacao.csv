@@ -1,2 +1,6 @@
-Razão,Feminino,Masculino
-Prorrogação de EQ,2,17
+Tipo,Feminino,Masculino,Total
+"Prorrogação de EQ",5,41,46
+"Prorrogação Extraordinária",0,1,1
+"Prorrogação Extraordinária (COVID-19)",1,22,23
+"Prorrogação Extraordinária de EQ  (COVID-19)",1,20,21
+"Prorrogação Regular",1,12,13
