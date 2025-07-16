@@ -1,9 +1,13 @@
+import SidebarHeader from "../components/Sidebar/SidebarHeader";
 import "../components/Layouts/Layout.css";
 import "../styles/pages/ContentSections.css";
 
 export default function About() {
   return (
     <div className="content-layout content-section">
+      <div className="mobile-header">
+        <SidebarHeader />
+      </div>
       <header className="content-header">
         <div className="header-title">
           <h2>Sobre o UFF Mulheres</h2>

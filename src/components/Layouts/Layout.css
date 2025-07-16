@@ -46,6 +46,8 @@
 @media (max-width: 768px) {
   .content-layout {
     padding: 25px 15px;
+    display: flex;
+    align-items: center;
   }
 
   .info-cards > div {
@@ -61,6 +63,19 @@
   }
 
   .content-header .header-title h2 {
-    text-align: right;
+    text-align: center;
+  }
+
+  .mobile-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-header {
+    display: none;
   }
 }

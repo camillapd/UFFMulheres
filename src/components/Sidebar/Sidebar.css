@@ -75,6 +75,14 @@
   .sidebar-container.open {
     transform: translateX(0);
   }
+
+  .sidebar-header-notmobile {
+    display: none;
+  }
+
+  .sidebar-menus {
+    padding-top: 4rem;
+  }
 }
 
 @media (min-width: 769px) {

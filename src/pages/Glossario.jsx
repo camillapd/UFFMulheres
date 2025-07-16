@@ -3,6 +3,7 @@ import { glossaryGrad } from "../glossaries/glossaryGrad";
 import { glossaryEad } from "../glossaries/glossaryEad";
 import { glossaryPos } from "../glossaries/glossaryPos";
 import { formatGlossary } from "../utils/formatGlossary";
+import SidebarHeader from "../components/Sidebar/SidebarHeader";
 import "../components/Layouts/Layout.css";
 
 export default function Glossario() {
@@ -32,6 +33,9 @@ export default function Glossario() {
 
   return (
     <div className="content-layout">
+      <div className="mobile-header">
+        <SidebarHeader />
+      </div>
       <header className="content-header">
         <div className="header-title">
           <h2>Glossário de termos</h2>
