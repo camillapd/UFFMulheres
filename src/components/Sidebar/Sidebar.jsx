@@ -23,7 +23,10 @@ const Sidebar = () => {
 
   return (
     <>
-      <button onClick={() => setIsOpen(!isOpen)} className="hamburger-button">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`hamburger-button ${isOpen ? "open" : ""}`}
+      >
         ☰
       </button>
       <div
@@ -31,7 +34,9 @@ const Sidebar = () => {
           isOpen ? "open" : ""
         }`}
       >
-        <SidebarHeader />
+        <div className="sidebar-header-notmobile">
+          <SidebarHeader />
+        </div>
         <div className="sidebar-menus sidebar">
           <button onClick={() => navigate("/")}>Home</button>
           <button onClick={() => navigate("/about")}>About</button>
