@@ -7,15 +7,15 @@ import { useState } from "react";
 
 const Sidebar = () => {
   const cursosGraduacao = [
-    <Link to="/computacao">Ciência da Computação</Link>,
-    <Link to="/informacao">Sistemas de Informação</Link>,
+    <Link to="/computacao">Ciência da Computação (Niterói)</Link>,
+    <Link to="/informacao">Sistemas de Informação (Niterói)</Link>,
     <Link to="/computacaoro">Ciência da Computação (Rio das Ostras)</Link>,
-    <Link to="/sistemas">Tecnologia em Sistemas de Computação</Link>,
+    <Link to="/sistemas">Tecnologia em Sistemas de Computação (Niterói)</Link>,
   ];
 
   const cursosPos = [
-    <Link to="/mestrado">Mestrado</Link>,
-    <Link to="/doutorado">Doutorado</Link>,
+    <Link to="/mestrado">Mestrado (IC-UFF)</Link>,
+    <Link to="/doutorado">Doutorado (IC-UFF)</Link>,
   ];
 
   const navigate = useNavigate();
