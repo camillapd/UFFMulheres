@@ -7,7 +7,7 @@ export default function DashboardInformacao() {
   const charts = (
     <>
       <ChartCard
-        title="Alunos ativos por situação"
+        title="Estudantes ativos por situação"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/informacao/si_situacao.csv",
@@ -16,12 +16,12 @@ export default function DashboardInformacao() {
           groupMode: "grouped",
           preset: "defaultFilter",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos em Sistemas de Informação por situação",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos em Sistemas de Informação por situação",
         }}
       />
 
       <ChartCard
-        title="Alunos ativos por forma de ingresso"
+        title="Estudantes ativos por forma de ingresso"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/informacao/si_forma_ingresso.csv",
@@ -31,12 +31,12 @@ export default function DashboardInformacao() {
           layout: "horizontal",
           preset: "defaultHorizontal",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos de Sistemas de Informação por forma de ingresso",
+            "Gráfico de barras mostrando a quantidade de estudantes de Sistemas de Informação por forma de ingresso",
         }}
       />
 
       <ChartCard
-        title="Alunos ativos por ano de ingresso"
+        title="Estudantes ativos por ano de ingresso"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/informacao/si_ano_ingresso.csv",
@@ -46,12 +46,12 @@ export default function DashboardInformacao() {
           xMode: "anoSemestre",
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos de Sistemas de Informação por ano de ingresso",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos de Sistemas de Informação por ano de ingresso",
         }}
       />
 
       <ChartCard
-        title="Alunos inscritos por ano"
+        title="Estudantes inscritos por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/informacao/si_inscritos_ano.csv",
@@ -59,12 +59,12 @@ export default function DashboardInformacao() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos inscritos por ano em Sistemas de Informação",
+            "Gráfico de barras mostrando a quantidade de estudantes inscritos por ano em Sistemas de Informação",
         }}
       />
 
       <ChartCard
-        title="Alunos formados por ano"
+        title="Estudantes formados por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/informacao/si_formados_ano.csv",
@@ -72,12 +72,12 @@ export default function DashboardInformacao() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos formados por ano em Sistemas de Informação",
+            "Gráfico de barras mostrando a quantidade de estudantes formados por ano em Sistemas de Informação",
         }}
       />
 
       <ChartCard
-        title="Alunos desistentes por ano"
+        title="Estudantes desistentes por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/informacao/si_desistentes_ano.csv",
@@ -85,12 +85,12 @@ export default function DashboardInformacao() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Sistemas de Informação",
+            "Gráfico de barras mostrando a quantidade de estudantes desistentes por ano em Sistemas de Informação",
         }}
       />
 
       <ChartCard
-        title="Alunos ativos ao longo dos anos"
+        title="Estudantes ativos ao longo dos anos"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/informacao/si_ativos_historico.csv",
@@ -99,7 +99,7 @@ export default function DashboardInformacao() {
           preset: "rotatedAxis",
           forceHorizontalOnMobile: true,
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Sistemas de Informação",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos ao longo dos anos em Sistemas de Informação",
         }}
       />
     </>
@@ -111,7 +111,7 @@ export default function DashboardInformacao() {
         import.meta.env.BASE_URL
       }assets/data/graduacao/alunos_ativos_geral.csv`}
       selectedMajor="Sistemas de Informação"
-      cardTitle="Total de alunos ativos"
+      cardTitle="Total de estudantes ativos"
     />
   );
 

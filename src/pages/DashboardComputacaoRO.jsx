@@ -7,7 +7,7 @@ export default function DashboardComputacaoRO() {
   const charts = (
     <>
       <ChartCard
-        title="Alunos ativos por situação"
+        title="Estudantes ativos por situação"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao(ro)/ro_situacao.csv",
@@ -16,12 +16,12 @@ export default function DashboardComputacaoRO() {
           groupMode: "grouped",
           preset: "defaultFilter",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos em Ciência da Computação em Rio das Ostras por situação",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos em Ciência da Computação em Rio das Ostras por situação",
         }}
       />
 
       <ChartCard
-        title="Alunos ativos por forma de ingresso"
+        title="Estudantes ativos por forma de ingresso"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao(ro)/ro_forma_ingresso.csv",
@@ -31,12 +31,12 @@ export default function DashboardComputacaoRO() {
           layout: "horizontal",
           preset: "defaultHorizontal",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos de Ciência da Computação em Rio das Ostras por forma de ingresso",
+            "Gráfico de barras mostrando a quantidade de estudantes de Ciência da Computação em Rio das Ostras por forma de ingresso",
         }}
       />
 
       <ChartCard
-        title="Alunos ativos por ano de ingresso"
+        title="Estudantes ativos por ano de ingresso"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao(ro)/ro_ano_ingresso.csv",
@@ -46,12 +46,12 @@ export default function DashboardComputacaoRO() {
           xMode: "anoSemestre",
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos de Ciência da Computação em Rio das Ostras por ano de ingresso",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos de Ciência da Computação em Rio das Ostras por ano de ingresso",
         }}
       />
 
       <ChartCard
-        title="Alunos inscritos por ano"
+        title="Estudantes inscritos por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao(ro)/ro_inscritos_ano.csv",
@@ -59,12 +59,12 @@ export default function DashboardComputacaoRO() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos inscritos por ano em Ciência da Computação em Rio das Ostras",
+            "Gráfico de barras mostrando a quantidade de estudantes inscritos por ano em Ciência da Computação em Rio das Ostras",
         }}
       />
 
       <ChartCard
-        title="Alunos formados por ano"
+        title="Estudantes formados por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao(ro)/ro_formados_ano.csv",
@@ -72,12 +72,12 @@ export default function DashboardComputacaoRO() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos formados por ano em Ciência da Computação em Rio das Ostras",
+            "Gráfico de barras mostrando a quantidade de estudantes formados por ano em Ciência da Computação em Rio das Ostras",
         }}
       />
 
       <ChartCard
-        title="Alunos desistentes por ano"
+        title="Estudantes desistentes por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao(ro)/ro_desistentes_ano.csv",
@@ -85,12 +85,12 @@ export default function DashboardComputacaoRO() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Ciência da Computação em Rio das Ostras",
+            "Gráfico de barras mostrando a quantidade de estudantes desistentes por ano em Ciência da Computação em Rio das Ostras",
         }}
       />
 
       <ChartCard
-        title="Alunos ativos ao longo dos anos"
+        title="Estudantes ativos ao longo dos anos"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao(ro)/ro_ativos_historico.csv",
@@ -99,7 +99,7 @@ export default function DashboardComputacaoRO() {
           preset: "rotatedAxis",
           forceHorizontalOnMobile: true,
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Ciência da Computação em Rio das Ostras",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos ao longo dos anos em Ciência da Computação em Rio das Ostras",
         }}
       />
     </>
@@ -111,7 +111,7 @@ export default function DashboardComputacaoRO() {
         import.meta.env.BASE_URL
       }assets/data/graduacao/alunos_ativos_geral.csv`}
       selectedMajor="Ciência da Computação (RO)"
-      cardTitle="Total de alunos ativos"
+      cardTitle="Total de estudantes ativos"
     />
   );
 

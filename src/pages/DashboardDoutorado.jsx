@@ -7,7 +7,7 @@ export default function DashboardDoutorado() {
   const charts = (
     <>
       <ChartCard
-        title="Alunos ativos por tipo de matrícula"
+        title="Estudantes ativos por tipo de matrícula"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "posgrad/doutorado/doutorado_tipo_matricula.csv",
@@ -16,12 +16,12 @@ export default function DashboardDoutorado() {
           groupMode: "grouped",
           preset: "defaultFilter",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos no doutorado",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos no doutorado",
         }}
       />
 
       <ChartCard
-        title="Alunos ativos que pediram prorrogação"
+        title="Estudantes ativos que pediram prorrogação"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "posgrad/doutorado/doutorado_prorrogacao.csv",
@@ -30,12 +30,12 @@ export default function DashboardDoutorado() {
           groupMode: "grouped",
           preset: "defaultFilter",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos que pediram prorrogação no doutorado",
+            "Gráfico de barras mostrando a quantidade de estudantes que pediram prorrogação no doutorado",
         }}
       />
 
       <ChartCard
-        title="Alunos que foram desligados da UFF por razão"
+        title="Estudantes que foram desligados da UFF por razão"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "posgrad/doutorado/doutorado_desligados.csv",
@@ -45,12 +45,12 @@ export default function DashboardDoutorado() {
           layout: "horizontal",
           preset: "defaultHorizontal",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos do doutorado que foram desligados da UFF, por razão",
+            "Gráfico de barras mostrando a quantidade de estudantes do doutorado que foram desligados da UFF, por razão",
         }}
       />
 
       <ChartCard
-        title="Alunos inscritos por ano"
+        title="Estudantes inscritos por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "posgrad/doutorado/doutorado_inscritos_ano.csv",
@@ -58,12 +58,12 @@ export default function DashboardDoutorado() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos inscritos por ano no doutorado",
+            "Gráfico de barras mostrando a quantidade de estudantes inscritos por ano no doutorado",
         }}
       />
 
       <ChartCard
-        title="Alunos formados por ano"
+        title="Estudantes formados por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "posgrad/doutorado/doutorado_formados_ano.csv",
@@ -71,12 +71,12 @@ export default function DashboardDoutorado() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos formados por ano no doutorado",
+            "Gráfico de barras mostrando a quantidade de estudantes formados por ano no doutorado",
         }}
       />
 
       <ChartCard
-        title="Alunos desligados por rendimento por ano"
+        title="Estudantes desligados por rendimento por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "posgrad/doutorado/doutorado_rendimento_ano.csv",
@@ -84,12 +84,12 @@ export default function DashboardDoutorado() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos desligados, por rendimento insuficiente, por ano no doutorado",
+            "Gráfico de barras mostrando a quantidade de estudantes desligados, por rendimento insuficiente, por ano no doutorado",
         }}
       />
 
       <ChartCard
-        title="Alunos desistentes por ano"
+        title="Estudantes desistentes por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "posgrad/doutorado/doutorado_desistentes_ano.csv",
@@ -97,12 +97,12 @@ export default function DashboardDoutorado() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos desistentes por ano no doutorado",
+            "Gráfico de barras mostrando a quantidade de estudantes desistentes por ano no doutorado",
         }}
       />
 
       <ChartCard
-        title="Alunos trancados por ano"
+        title="Estudantes trancados por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "posgrad/doutorado/doutorado_trancados_ano.csv",
@@ -110,7 +110,7 @@ export default function DashboardDoutorado() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos que pediram trancamento, por ano no doutorado",
+            "Gráfico de barras mostrando a quantidade de estudantes que pediram trancamento, por ano no doutorado",
         }}
       />
     </>
@@ -122,7 +122,7 @@ export default function DashboardDoutorado() {
         import.meta.env.BASE_URL
       }assets/data/posgrad/alunos_ativos_geral.csv`}
       selectedMajor="Doutorado"
-      cardTitle="Total de alunos ativos"
+      cardTitle="Total de estudantes ativos"
     />
   );
 

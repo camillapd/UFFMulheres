@@ -7,7 +7,7 @@ export default function DashboardSistemas() {
   const charts = (
     <>
       <ChartCard
-        title="Alunos ativos por situação"
+        title="Estudantes ativos por situação"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/sistemas/sc_situacao.csv",
@@ -17,12 +17,12 @@ export default function DashboardSistemas() {
           layout: "horizontal",
           preset: "defaultHorizontal",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos em Superior de Tecnologia em Sistemas de Computação por situação",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos em Superior de Tecnologia em Sistemas de Computação por situação",
         }}
       />
 
       <ChartCard
-        title="Alunos ativos por forma de ingresso"
+        title="Estudantes ativos por forma de ingresso"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/sistemas/sc_forma_ingresso.csv",
@@ -32,12 +32,12 @@ export default function DashboardSistemas() {
           layout: "horizontal",
           preset: "defaultHorizontal",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos de Superior de Tecnologia em Sistemas de Computação por forma de ingresso",
+            "Gráfico de barras mostrando a quantidade de estudantes de Superior de Tecnologia em Sistemas de Computação por forma de ingresso",
         }}
       />
 
       <ChartCard
-        title="Alunos ativos por ano de ingresso"
+        title="Estudantes ativos por ano de ingresso"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/sistemas/sc_ano_ingresso.csv",
@@ -47,12 +47,12 @@ export default function DashboardSistemas() {
           xMode: "anoSemestre",
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos de Superior de Tecnologia em Sistemas de Computação por ano de ingresso",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos de Superior de Tecnologia em Sistemas de Computação por ano de ingresso",
         }}
       />
 
       <ChartCard
-        title="Alunos inscritos por ano"
+        title="Estudantes inscritos por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/sistemas/sc_inscritos_ano.csv",
@@ -60,12 +60,12 @@ export default function DashboardSistemas() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos inscritos por ano em Superior de Tecnologia em Sistemas de Computação",
+            "Gráfico de barras mostrando a quantidade de estudantes inscritos por ano em Superior de Tecnologia em Sistemas de Computação",
         }}
       />
 
       <ChartCard
-        title="Alunos formados por ano"
+        title="Estudantes formados por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/sistemas/sc_formados_ano.csv",
@@ -73,12 +73,12 @@ export default function DashboardSistemas() {
           valueColumns: ["Feminino", "Masculino"],
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos formados por ano em Superior de Tecnologia em Sistemas de Computação",
+            "Gráfico de barras mostrando a quantidade de estudantes formados por ano em Superior de Tecnologia em Sistemas de Computação",
         }}
       />
 
       <ChartCard
-        title="Alunos desistentes por ano"
+        title="Estudantes desistentes por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/sistemas/sc_desistentes_ano.csv",
@@ -87,12 +87,12 @@ export default function DashboardSistemas() {
           groupMode: "grouped",
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos desistentes por ano em Superior de Tecnologia em Sistemas de Computação",
+            "Gráfico de barras mostrando a quantidade de estudantes desistentes por ano em Superior de Tecnologia em Sistemas de Computação",
         }}
       />
 
       <ChartCard
-        title="Alunos ativos ao longo dos anos"
+        title="Estudantes ativos ao longo dos anos"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/sistemas/sc_ativos_historico.csv",
@@ -101,7 +101,7 @@ export default function DashboardSistemas() {
           preset: "rotatedAxis",
           forceHorizontalOnMobile: true,
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Superior de Tecnologia em Sistemas de Computação",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos ao longo dos anos em Superior de Tecnologia em Sistemas de Computação",
         }}
       />
     </>
@@ -113,7 +113,7 @@ export default function DashboardSistemas() {
         import.meta.env.BASE_URL
       }assets/data/graduacao/alunos_ativos_geral.csv`}
       selectedMajor="Sistemas de Computação"
-      cardTitle="Total de alunos ativos"
+      cardTitle="Total de estudantes ativos"
     />
   );
 

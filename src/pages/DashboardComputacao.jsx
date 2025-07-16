@@ -7,7 +7,7 @@ export default function DashboardComputacao() {
   const charts = (
     <>
       <ChartCard
-        title="Alunos ativos por situação"
+        title="Estudantes ativos por situação"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao/cc_situacao.csv",
@@ -16,12 +16,12 @@ export default function DashboardComputacao() {
           groupMode: "grouped",
           preset: "defaultFilter",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos em Ciência da Computação por situação",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos em Ciência da Computação por situação",
         }}
       />
 
       <ChartCard
-        title="Alunos ativos por forma de ingresso"
+        title="Estudantes ativos por forma de ingresso"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao/cc_forma_ingresso.csv",
@@ -36,7 +36,7 @@ export default function DashboardComputacao() {
       />
 
       <ChartCard
-        title="Alunos ativos por ano de ingresso"
+        title="Estudantes ativos por ano de ingresso"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao/cc_ano_ingresso.csv",
@@ -46,12 +46,12 @@ export default function DashboardComputacao() {
           xMode: "anoSemestre",
           preset: "rotatedAxis",
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos de Ciência da Computação por ano de ingresso",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos de Ciência da Computação por ano de ingresso",
         }}
       />
 
       <ChartCard
-        title="Alunos inscritos por ano"
+        title="Estudantes inscritos por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao/cc_inscritos_ano.csv",
@@ -64,7 +64,7 @@ export default function DashboardComputacao() {
       />
 
       <ChartCard
-        title="Alunos formados por ano"
+        title="Estudantes formados por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao/cc_formados_ano.csv",
@@ -77,7 +77,7 @@ export default function DashboardComputacao() {
       />
 
       <ChartCard
-        title="Alunos desistentes por ano"
+        title="Estudantes desistentes por ano"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao/cc_desistentes_ano.csv",
@@ -90,7 +90,7 @@ export default function DashboardComputacao() {
       />
 
       <ChartCard
-        title="Alunos ativos ao longo dos anos"
+        title="Estudantes ativos ao longo dos anos"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "graduacao/computacao/cc_ativos_historico.csv",
@@ -99,7 +99,7 @@ export default function DashboardComputacao() {
           preset: "rotatedAxis",
           forceHorizontalOnMobile: true,
           ariaLabel:
-            "Gráfico de barras mostrando a quantidade de alunos ativos ao longo dos anos em Ciência da Computação",
+            "Gráfico de barras mostrando a quantidade de estudantes ativos ao longo dos anos em Ciência da Computação",
         }}
       />
     </>
@@ -111,7 +111,7 @@ export default function DashboardComputacao() {
         import.meta.env.BASE_URL
       }assets/data/graduacao/alunos_ativos_geral.csv`}
       selectedMajor="Ciência da Computação"
-      cardTitle="Total de alunos ativos"
+      cardTitle="Total de estudantes ativos"
     />
   );
 

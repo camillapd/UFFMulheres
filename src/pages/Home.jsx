@@ -259,7 +259,7 @@ export default function Home() {
       />
 
       <ChartCard
-        title="Alunos da pós que declararam sua formação em graduação"
+        title="Estudantes da pós que declararam sua formação em graduação"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "posgrad/formacao_em_graduacao.csv",
@@ -268,11 +268,11 @@ export default function Home() {
           layout: "horizontal",
           preset: "defaultHorizontal",
           ariaLabel:
-            "Gráfico de barras dos alunos da pós que declararam sua formação em graduação",
+            "Gráfico de barras dos estudantes da pós que declararam sua formação em graduação",
         }}
       />
       <ChartCard
-        title="Alunos pós que declararam sua formação em mestrado"
+        title="Estudantes da pós que declararam sua formação em mestrado"
         ChartComponent={BarChart}
         chartProps={{
           csvFileName: "posgrad/formacao_em_mestrado.csv",
@@ -281,7 +281,7 @@ export default function Home() {
           layout: "horizontal",
           preset: "defaultHorizontal",
           ariaLabel:
-            "Gráfico de barras dos alunos da pós que declararam sua formação em mestrado",
+            "Gráfico de barras dos estudantes da pós que declararam sua formação em mestrado",
         }}
       />
     </>
@@ -292,13 +292,13 @@ export default function Home() {
       <InfoCardGroup
         csvPath={`${import.meta.env.BASE_URL}assets/data/graduacao/alunos_ativos_geral.csv`}
         selectedMajor="all"
-        cardTitle="Total de alunos ativos da Graduação"
+        cardTitle="Estudantes ativos da Graduação"
       />
 
       <InfoCardGroup
           csvPath={`${import.meta.env.BASE_URL}assets/data/posgrad/alunos_ativos_geral.csv`}
         selectedMajor="all"
-        cardTitle="Total de alunos ativos da Pós-Graduação"
+        cardTitle="Estudantes ativos da Pós-Graduação"
       />
     </>
   );

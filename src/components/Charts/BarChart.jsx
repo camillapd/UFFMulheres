@@ -38,7 +38,7 @@ const BarChart = ({
         return `${item.Instituição} - ${item.Curso}`;
       }
 
-      // usado somente no gráfico alunos ativos por ano de inscrição
+      // usado somente no gráfico estudantes ativos por ano de inscrição
       // porque nos csvs (*curso*_ano_ingresso.csv) tem semestre separado do ano
       if (xMode === "anoSemestre") {
         if (item.Ano !== undefined && item.Semestre !== undefined) {
@@ -57,7 +57,7 @@ const BarChart = ({
   const parseCsvData = (csvResultData, csvFields) => {
     const isLong = csvFields.includes("Sexo");
 
-    // o islong é somente para o gráfico alunos ativos através dos anos da graduação
+    // o islong é somente para o gráfico estudantes ativos através dos anos da graduação
     // porque esse é o único csv em formato long nos dados
     if (isLong) {
       const grouped = {};
@@ -181,7 +181,7 @@ const BarChart = ({
   // importante para definir as axis dependendo do tipo de layout vertical e horizontal
   const getAxisProps = () => {
     const categoryLegend = xColumn;
-    const valueLegend = "Quantidade de alunos";
+    const valueLegend = "Quantidade de estudantes";
 
     const categoryAxisLegend = isHorizontal
       ? legendLeftText ?? categoryLegend
@@ -257,9 +257,9 @@ const BarChart = ({
     let label = ariaLabel;
 
     if (sexoFilter && sexoFilter !== "Todos") {
-      label += `, filtrando alunos do sexo ${sexoFilter}`;
+      label += `, filtrando estudantes do sexo ${sexoFilter}`;
     } else {
-      label += `, mostrando todos os alunos`;
+      label += `, mostrando todos os estudantes`;
     }
 
     return label;
@@ -304,7 +304,7 @@ const BarChart = ({
           overflow: "hidden",
         }}
       >
-        {`Gráfico de alunos com filtro de sexo: ${filters.sexo}. Contagem total por categoria:`}
+        {`Gráfico de estudantes com filtro de sexo: ${filters.sexo}. Contagem total por categoria:`}
         {data.map((item) => {
           const feminino = item.Feminino ?? 0;
           const masculino = item.Masculino ?? 0;
@@ -315,7 +315,7 @@ const BarChart = ({
 
       <div className="filter-container">
         <label>
-          <label htmlFor="sexoFilter">Filtrar alunos: </label>
+          <label htmlFor="sexoFilter">Filtrar estudantes: </label>
           <select
             id="sexoFilter"
             value={filters.sexo}
@@ -410,7 +410,7 @@ const BarChart = ({
         isFocusable={true}
         enableLabel={true}
         barAriaLabel={(e) =>
-          e.indexValue + " - " + e.id + e.formattedValue + ": alunos"
+          e.indexValue + " - " + e.id + e.formattedValue + ": estudantes"
         }
         theme={theme}
       />
