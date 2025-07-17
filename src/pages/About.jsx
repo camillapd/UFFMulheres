@@ -131,6 +131,22 @@ export default function About() {
           </li>
         </ul>
       </section>
+
+      <section className="about-section about-authors">
+        <h3>Sobre nós</h3>
+        <p>
+          Projeto desenvolvido como parte do Trabalho de Conclusão de Curso de
+          Ciência da Computação do Instituto de Computação da Universidade
+          Federal Fluminense (IC-UFF), com autoria de:
+        </p>
+        <ul>
+          <li>
+            Camilla Andrade - Graduanda de Ciência da Computação do IC-UFF
+          </li>
+          <li>Luciana Salgado - Orientadora, Prof. Adjunto do IC-UFF</li>
+          <li>Simone Martins - Coorientadora, Prof. Associado do IC-UFF</li>
+        </ul>
+      </section>
     </div>
   );
 }
