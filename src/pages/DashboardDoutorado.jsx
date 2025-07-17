@@ -28,7 +28,8 @@ export default function DashboardDoutorado() {
           xColumn: "Razão",
           valueColumns: ["Feminino", "Masculino"],
           groupMode: "grouped",
-          preset: "defaultFilter",
+          layout: "horizontal",
+          preset: "defaultHorizontal",
           ariaLabel:
             "Gráfico de barras mostrando a quantidade de estudantes que pediram prorrogação no doutorado",
         }}
