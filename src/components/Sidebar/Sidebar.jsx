@@ -10,7 +10,7 @@ const Sidebar = () => {
     <Link to="/computacao">Ciência da Computação (Niterói)</Link>,
     <Link to="/informacao">Sistemas de Informação (Niterói)</Link>,
     <Link to="/computacaoro">Ciência da Computação (Rio das Ostras)</Link>,
-    <Link to="/sistemas">Tecnologia em Sistemas de Computação (Niterói)</Link>,
+    <Link to="/sistemas">Tecnologia em Sistemas de Computação (CEDERJ)</Link>,
   ];
 
   const cursosPos = [
