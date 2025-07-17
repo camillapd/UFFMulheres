@@ -198,7 +198,7 @@ const BarChart = ({
       legend: isHorizontal ? valueAxisLegend : categoryAxisLegend,
       legendPosition: "middle",
       legendOffset: currentLegendOffsetBottom,
-      truncateTickAt: 0,
+      truncateTickAt: 20,
     };
 
     const axisLeft = {
@@ -208,7 +208,7 @@ const BarChart = ({
       legend: isHorizontal ? categoryAxisLegend : valueAxisLegend,
       legendPosition: "middle",
       legendOffset: currentLegendOffsetLeft,
-      truncateTickAt: 0,
+      truncateTickAt: 30,
       format: !isHorizontal
         ? (value) => (Number.isInteger(value) ? value : "")
         : undefined,
